@@ -1,0 +1,55 @@
+.memories-section{padding-top:50px;max-width:1440px;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,#79502719,transparent 65%)}
+.memories-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:35px;margin-bottom:36px}
+.memories-heading h2{font-size:clamp(40px,4.5vw,65px)}
+.memories-heading>p{font-family:"IM Fell English",Georgia,serif;font-size:23px;line-height:1.5;color:#c6baa0;margin:0 0 6px}
+.memories-heading>p>span{display:block;font-family:"Special Elite",Georgia,serif;font-size:10px;letter-spacing:1px;color:#94876e;margin-top:15px}
+.memories-empty{display:grid;justify-items:center;text-align:center;gap:17px;padding:50px 25px;border:1px solid #a58a5345;color:#b99b70}
+.memories-empty p{max-width:440px;margin:0;font-family:"IM Fell English",Georgia,serif;font-size:20px;line-height:1.7}
+.memories-carousel{min-width:0;max-width:100%}
+.album-label{display:flex;justify-content:space-between;gap:15px;border-top:1px solid #ab8b5740;padding:17px 0;font-size:10px;letter-spacing:2px;color:#a48a64}
+.memories-viewport{overflow:hidden;margin:0 -32px;padding:30px 0 35px;cursor:grab;touch-action:pan-y pinch-zoom}
+.memories-viewport:active{cursor:grabbing}
+.memories-track{display:flex;touch-action:pan-y pinch-zoom}
+.memory-slide{flex:0 0 67%;min-width:0;padding:0 20px}
+.memory-print{margin:0;padding:12px 12px 0;background:#d1c09a;box-shadow:0 18px 30px #0007;transform:scale(.88) rotate(-3deg);opacity:.43;transition:transform .65s,opacity .65s,background .65s;position:relative}
+.memory-slide:nth-child(even) .memory-print{transform:scale(.88) rotate(3deg)}
+.memory-slide.is-active .memory-print{transform:scale(1) rotate(-.6deg);opacity:1;background:#e0cfaa}
+.memory-print:before{content:"";position:absolute;left:calc(50% - 37px);top:-12px;width:74px;height:25px;background:#a9916266;transform:rotate(-4deg);z-index:2;border-left:2px dashed #e1cba84a;border-right:2px dashed #e1cba84a;pointer-events:none}
+.memory-photo{position:relative;overflow:hidden;background:#121612;height:clamp(300px,34vw,440px)}
+.memory-backdrop{position:absolute;inset:-15%;width:130%;max-width:none;height:130%;object-fit:cover;filter:blur(24px) brightness(.28) saturate(.55);pointer-events:none}
+.memory-original{position:relative;display:block;width:100%;height:100%;object-fit:contain;user-select:none}
+.memory-print figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 8px 20px;color:#3f3627}
+.memory-print figcaption span{font-family:"IM Fell English",Georgia,serif;font-size:21px;font-style:italic;line-height:1.25}
+.memory-print figcaption b{font-family:"Special Elite",Georgia,serif;font-size:15px;font-weight:400;color:#7b6748}
+.memory-expand{position:absolute;bottom:12px;right:12px;width:42px;height:42px;display:grid;place-items:center;border:1px solid #dac6a15c;background:#080c0ccb;color:#eee0c6;border-radius:50%;cursor:pointer}
+.memory-slide:not(.is-active) .memory-expand{visibility:hidden}
+.memories-controls{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:20px;border-top:1px solid #ab8b5733}
+.memory-count{display:flex;align-items:baseline;gap:10px;min-width:80px;color:#c5aa7d;font-variant-numeric:tabular-nums}
+.memory-count b{font-family:"Pirata One",Georgia,serif;font-size:34px;font-weight:400}.memory-count>span{font-size:12px;color:#8b806a}
+.memory-buttons{display:flex;gap:9px}
+.memory-buttons button{display:grid;place-items:center;width:46px;height:46px;border:1px solid #a58a5355;border-radius:50%;background:#141810;color:#dbc7a1;cursor:pointer;transition:background .2s}
+.memory-buttons button:hover,.memory-expand:hover{background:#38301e}
+.memory-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:1px}
+.memory-dots button{display:grid;place-items:center;width:25px;height:44px;background:none;border:0;cursor:pointer}
+.memory-dots span{width:5px;height:5px;border-radius:50%;background:#6c624f;transition:width .3s,background .3s}
+.memory-dots .is-active span{width:19px;border-radius:3px;background:#d3b17a}
+.memory-hint{text-align:center;font-family:"IM Fell English",Georgia,serif;font-style:italic;color:#99876b;font-size:17px;margin:22px 0 0}
+.memory-lightbox{padding:0;border:1px solid #a58a5355;background:#080b09;max-width:94vw;max-height:92svh;margin:auto;overflow:hidden}
+.memory-lightbox::backdrop{background:#000e;backdrop-filter:blur(8px)}
+.memory-lightbox>img{display:block;width:auto;height:auto;max-width:92vw;max-height:88svh;object-fit:contain}
+.memory-lightbox-close{position:absolute;z-index:2;right:10px;top:10px;width:46px;height:46px;display:grid;place-items:center;border:1px solid #d2bb8055;background:#080b09dc;color:#eee0c6;border-radius:50%;cursor:pointer}
+@media(max-width:1000px){.memories-heading{align-items:flex-start;flex-direction:column;gap:20px}.memories-heading>p{font-size:21px}.memory-slide{flex-basis:78%;padding:0 13px}.memory-print figcaption span{font-size:19px}}
+@media(max-width:700px){.memories-section{padding-top:30px}.memories-heading h2{font-size:43px}.memories-heading>p{font-size:19px}.album-label{font-size:8px;letter-spacing:1px}.memories-viewport{margin:0 -24px;padding:22px 0 28px}.memory-slide{flex-basis:86%;padding:0 10px}.memory-print{padding:8px 8px 0}.memory-photo{height:clamp(280px,83vw,420px)}.memory-print figcaption{padding:15px 5px;gap:8px}.memory-print figcaption span{font-size:18px}.memory-print figcaption b{font-size:12px}.memories-controls{flex-wrap:wrap;gap:10px}.memory-dots{order:3;flex-basis:100%;gap:3px}.memory-dots button{width:24px}.memory-hint{margin-top:10px}.memory-count b{font-size:30px}}
+@media(prefers-reduced-motion:reduce){.memory-print,.memory-dots span{transition:none}.memory-slide .memory-print,.memory-slide:nth-child(even) .memory-print,.memory-slide.is-active .memory-print{transform:none}}
+
+/* Stable slide geometry without duplicate blurred photographs. */
+.memory-photo{background:radial-gradient(ellipse at center,#30291f,#101410 75%);contain:paint}
+.memory-print{transition:transform .4s,opacity .4s}
+@media(max-width:700px){
+  .memories-heading h2{font-size:clamp(32px,9vw,43px)}
+  .memory-photo{height:clamp(210px,65vw,320px)}
+  .memory-print figcaption span{font-size:16px}
+  .memory-dots{gap:0}
+  .memory-dots button{width:20px;min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){.memory-print{transition:none}}

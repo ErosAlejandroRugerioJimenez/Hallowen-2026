@@ -1,0 +1,42 @@
+import { LazyMotion, domAnimation } from 'motion/react'
+import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
+import Hero from './components/sections/Hero'
+import TraditionStrip from './components/sections/TraditionStrip'
+import Tradition from './components/sections/Tradition'
+import Memories from './components/sections/Memories'
+import Participation from './components/sections/Participation'
+import Location from './components/sections/Location'
+import Committee from './components/sections/Committee'
+import Closing from './components/sections/Closing'
+import EventPoster from './components/sections/EventPoster'
+import AmbientSound from './components/experience/AmbientSound'
+import FallingPetals from './components/decorations/FallingPetals'
+import { useReveal } from './hooks/useReveal'
+
+export default function App() {
+  const page = useReveal()
+  return (
+    <LazyMotion features={domAnimation}>
+      <div ref={page}>
+        <a href="#contenido" className="skip-link">Ir al contenido</a>
+        <Header/>
+        <main id="contenido">
+          <Hero/>
+          <TraditionStrip/>
+          <Tradition/>
+          <Memories/>
+          <Participation/>
+          <Location/>
+          <Committee/>
+          <EventPoster/>
+          <Closing/>
+        </main>
+        <Footer/>
+        <FallingPetals/>
+        <AmbientSound/>
+      </div>
+    </LazyMotion>
+  )
+}
+

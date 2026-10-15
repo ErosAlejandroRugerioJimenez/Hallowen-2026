@@ -1,0 +1,43 @@
+/* Quick entrances and clear feedback, using transform and opacity. */
+.reveal{opacity:1;transform:none;transition:none}
+@media(prefers-reduced-motion:no-preference){
+  .motion-ready .reveal{transition:opacity .4s ease-out}
+  .motion-ready .reveal:not(.visible){opacity:0}
+  .motion-ready .reveal>div:first-child,
+  .motion-ready .reveal>.participation-heading,
+  .motion-ready .reveal>.eyebrow{transition:transform .45s cubic-bezier(.22,1,.36,1)}
+  .motion-ready .reveal:not(.visible)>div:first-child,
+  .motion-ready .reveal:not(.visible)>.participation-heading,
+  .motion-ready .reveal:not(.visible)>.eyebrow{transform:translateY(12px)}
+  .hero-copy{animation:hero-arrive .6s cubic-bezier(.22,1,.36,1) both}
+  @keyframes hero-arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .primary-link,.poster-share,.memory-buttons button,.memory-expand,.menu-toggle,.ambient-toggle{
+    transition:transform .18s ease-out,background-color .18s,border-color .18s,color .18s
+  }
+  .primary-link:active,.poster-share:active,.memory-buttons button:active,.memory-expand:active,.menu-toggle:active,.ambient-toggle:active{transform:scale(.95)}
+  .primary-link svg,.footer-links svg,.footer-meeting a svg,.back-top svg{transition:transform .2s ease-out}
+  @media(hover:hover) and (pointer:fine){
+    .primary-link:hover,.poster-share:hover,.memory-buttons button:hover{transform:translateY(-2px)}
+    .primary-link:hover svg,.footer-links a:hover svg,.footer-meeting a:hover svg,.back-top:hover svg{transform:translate(2px,-2px)}
+  }
+}
+section[data-in-view="false"] .night-fog span,
+section[data-in-view="false"] .candle-light,
+section[data-in-view="false"] .passing-shadow,
+section[data-in-view="false"] .paper-flag,
+[data-page-hidden="true"] .night-fog span,
+[data-page-hidden="true"] .candle-light,
+[data-page-hidden="true"] .passing-shadow,
+[data-page-hidden="true"] .paper-flag{animation-play-state:paused}
+@media(max-width:700px){
+  /* Native touch scrolling keeps control; avoid large moving image layers. */
+  .layered-hero .street-layer,.layered-hero .catrina-layer,.layered-hero .night-fog{transform:none!important}
+  .film-grain{display:none}
+  .memory-lightbox::backdrop{backdrop-filter:none}
+}
+@supports(animation-timeline:scroll()){
+  @media(prefers-reduced-motion:no-preference){
+    body:after{content:"";position:fixed;top:0;left:0;right:0;height:2px;z-index:100;pointer-events:none;background:#d4a36b;transform-origin:left;animation:reading-progress linear both;animation-timeline:scroll(root)}
+    @keyframes reading-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  }
+}

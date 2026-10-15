@@ -1,0 +1,21 @@
+PON TUS FOTOS AQUÍ
+
+Formatos: JPG, JPEG, PNG, WebP, AVIF y TIFF.
+No necesitas convertirlas ni reducirlas. Se conservan los originales.
+Puedes usar subcarpetas por año, por ejemplo: 2024/01-desfile.jpg.
+También sirve: 2023-concurso.jpg. El año es opcional; no se inventará.
+
+Después de agregar fotos:
+  npm run gallery:import
+
+También se importan al ejecutar npm run dev o npm run build.
+Si el servidor ya estaba abierto, ejecuta gallery:import para actualizarlo.
+Las versiones WebP se generan en public/images/recuerdos.
+Evita incluir fotos que no quieras mostrar públicamente.
+
+SELECCIÓN ACTUAL
+Los 22 originales están en originales/.
+seleccion.json controla las 15 fotos elegidas, su orden y descripciones.
+Las fotos no elegidas se conservan, pero no aparecen en la web.
+El año está sin confirmar: no se toma la fecha de envío de WhatsApp.
+Para sumar fotos nuevas, agrégalas a esta carpeta y avisa para actualizar la selección.

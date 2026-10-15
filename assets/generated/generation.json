@@ -1,0 +1,85 @@
+{
+  "method": "Built-in image_gen",
+  "assets": [
+    {
+      "name": "catrina-night",
+      "original": "assets/generated/catrina-night.png",
+      "web": "public/images/catrina-night.webp",
+      "prompt": "Cinematic photorealistic horror landing page: a deserted Mexican Día de Muertos street at midnight, wet cobblestones, torn papel picado, marigolds, candlelit ofrendas, a terrifying Catrina in black lace on the right, distant silhouette in fog, dark left side for text. Cold moonlight and amber candles. No gore, writing or watermark."
+    },
+    {
+      "name": "creatures",
+      "original": "assets/generated/creatures.png",
+      "web": [
+        "public/images/bruja.webp",
+        "public/images/demonio.webp",
+        "public/images/fantasma.webp",
+        "public/images/momia.webp"
+      ],
+      "prompt": "Four equal vertical realistic horror portraits, left to right: frightening witch, weathered horned demon, spectral ghost in torn shroud, ancient mummy. Near-black background, antique chiaroscuro, muted bone and ash, dried marigolds. No cartoon, gore, text or watermark."
+    },
+    {
+      "name": "event-poster",
+      "original": "assets/generated/calle-de-las-brujas-2026.png",
+      "prompt": "Cinematic macabre Mexican Día de Muertos poster. A skeletal Catrina in black lace on the right, foggy street, witch silhouette, candles, marigolds and torn papel picado. Exact weathered gothic text: CALLE DE LAS BRUJAS; 2026; DÍA DE MUERTOS; 2 DE NOVIEMBRE · 7:00 P. M. No gore or watermark.",
+      "archivedWeb": [
+        "public/images/calle-de-las-brujas-2026.webp"
+      ],
+      "status": "archived-original"
+    },
+    {
+      "original": "assets/generated/catrina-foreground.png",
+      "name": "catrina-foreground",
+      "prompt": "Isolate the reference Catrina on a transparent background, preserving lace, marigold crown, skeletal face and realistic lighting.",
+      "web": "public/images/catrina-foreground.webp"
+    },
+    {
+      "original": "assets/generated/street-background.png",
+      "name": "street-background",
+      "prompt": "Remove the foreground Catrina while preserving the foggy Mexican street, candles, marigolds, architecture and distant silhouette.",
+      "web": "public/images/street-background.webp"
+    },
+    {
+      "original": "assets/generated/cartel-grabado-2026.png",
+      "name": "cartel-grabado-2026",
+      "prompt": "Artisan Mexican woodcut poster: black ink, marigold orange, aged cream paper, irregular carved lines, skeletal Catrina, candles and flowers. Text: CALLE DE LAS BRUJAS; 2026; DÍA DE MUERTOS; 2 DE NOVIEMBRE; 7:00 P.M.; CALLE ALLENDE; DESFILE DISFRACES SHOWS.",
+      "archivedWeb": [
+        "public/images/cartel-grabado-2026.webp",
+        "public/images/cartel-grabado-2026.jpg"
+      ],
+      "status": "archived-original"
+    },
+    {
+      "original": "assets/generated/cartel-grabado-2026-v2.png",
+      "prompt": "Edit this existing Día de Muertos woodcut event poster. Preserve the entire composition, Catrina, street, ink texture, typography, black/orange/cream palette and all other text. Change ONLY the event time on the bottom date line from '7:00 P.M.' to '5:30 P.M.'. The final date line must read exactly '2 DE NOVIEMBRE · 5:30 P.M.'. Keep CALLE ALLENDE, title CALLE DE LAS BRUJAS, 2026, DÍA DE MUERTOS and DESFILE DISFRACES SHOWS. No other additions.",
+      "method": "Built-in image_gen",
+      "name": "cartel-grabado-2026-v2",
+      "archivedWeb": [
+        "public/images/cartel-grabado-2026-v2.webp",
+        "public/images/cartel-grabado-2026-v2.jpg"
+      ],
+      "status": "archived-original"
+    },
+    {
+      "prompt": "Redesign the referenced event poster completely as a credible contemporary Mexican neighborhood cultural event flyer prepared by a careful local graphic designer. Flat print-ready portrait 1024x1536, no photograph of a poster, no mockup. Restrained two-color screenprint, charcoal black and deep burnt orange on clean warm ivory uncoated stock, very subtle real ink texture, generous margins, confident typographic grid. Typography dominates 65% of the design: condensed bold clean block lettering, editorial hierarchy, aligned small sans-serif labels; no fake distressed lettering, no ornate Victorian borders, no excessive faux vintage noise. One simple bold cut-paper style skeletal face in a black witch hat, deliberately spare asymmetric hand-inked shapes with a few coarse hatch marks, and three small marigolds; striking macabre silhouette, no detailed AI fantasy Catrina, no cinematic lighting, no 3D, no elaborate cityscape, no ghost crowd. Make it feel like an actual community poster from a print shop, readable on WhatsApp. Exact Spanish text, carefully spelled, all readable: small top 'COMITÉ 2026 INVITA'; enormous title on three lines 'CALLE DE' / 'LAS BRUJAS' / '2026'; strong orange badge '24 AÑOS DE TRADICIÓN'; medium 'DÍA DE MUERTOS'; clear large date '2 DE NOVIEMBRE'; time 'CITA · 5:30 P. M.'; location 'CALLE ALLENDE'; small bottom 'DESFILE · DISFRACES · SHOWS'; final footer 'Ven con tu carro, moto o disfraz'. Do not add any other text or logos. Use reference only for event identity; this must be a visibly new graphic design, substantially less busy.",
+      "name": "cartel-barrio-2026",
+      "original": "assets/generated/cartel-barrio-2026.png",
+      "method": "Built-in image_gen",
+      "archivedWeb": [
+        "public/images/cartel-barrio-2026.webp",
+        "public/images/cartel-barrio-2026.jpg"
+      ],
+      "status": "archived-original"
+    },
+    {
+      "web": [
+        "public/images/cartel-concursos-2026.webp",
+        "public/images/cartel-concursos-2026.jpg"
+      ],
+      "prompt": "Edit this poster with exactly one text correction. In the bottom activity line, replace DISFRACES with CONCURSOS so the line reads exactly 'DESFILE · CONCURSOS · SHOWS'. Preserve all other text and design exactly, including the final footer 'Ven con tu carro, moto o disfraz', Catrina, flowers, black/orange print, title, 2026, 24 AÑOS DE TRADICIÓN, 2 DE NOVIEMBRE, CITA · 5:30 P. M. and CALLE ALLENDE. Match existing condensed uppercase font and spacing; only the one word must change.",
+      "original": "assets/generated/cartel-concursos-2026.png",
+      "method": "Built-in image_gen",
+      "name": "cartel-concursos-2026"
+    }
+  ]
+}

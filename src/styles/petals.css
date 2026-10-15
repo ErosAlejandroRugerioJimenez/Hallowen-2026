@@ -1,0 +1,13 @@
+/* Cempasúchil transportado por el viento, sin capturar clics. */
+.falling-petals{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:12;contain:layout paint}
+.petal-fall{position:absolute;top:-45px;width:var(--petal-size);height:var(--petal-size);opacity:0;animation:marigold-fall var(--fall-duration) var(--fall-delay) linear infinite}
+.petal-sway{display:block;width:100%;height:100%;animation:marigold-sway 5.5s var(--fall-delay) ease-in-out infinite alternate}
+.marigold-petal{display:block;width:100%;height:65%;border-radius:75% 18% 70% 25%;background:radial-gradient(ellipse at 30% 25%,#df9b43,#ac531e 68%,#71381f);box-shadow:inset 1px 0 2px #f1bc5929;transform:rotate(var(--petal-spin));animation:marigold-tumble 8s var(--fall-delay) ease-in-out infinite}
+.marigold-petal.tone-1{background:radial-gradient(ellipse at 25% 20%,#d88633,#8e421b 70%);height:75%;border-radius:65% 25% 75% 15%}
+.marigold-petal.tone-2{background:radial-gradient(ellipse at 25% 20%,#e1ae57,#b66725 70%);width:75%}
+.falling-petals[data-paused="true"] .petal-fall,.falling-petals[data-paused="true"] .petal-sway,.falling-petals[data-paused="true"] .marigold-petal{animation-play-state:paused}
+@keyframes marigold-fall{0%{opacity:0;transform:translate3d(0,-20px,0)}8%{opacity:.6}85%{opacity:.5}100%{opacity:0;transform:translate3d(0,calc(100vh + 90px),0)}}
+@keyframes marigold-sway{from{transform:translateX(calc(var(--petal-sway) * -.5))}to{transform:translateX(calc(var(--petal-sway) * .5))}}
+@keyframes marigold-tumble{0%,100%{transform:rotate(var(--petal-spin)) scaleX(.9)}50%{transform:rotate(calc(var(--petal-spin) + 160deg)) scaleX(.4)}}
+@media(max-width:700px){.petal-fall:nth-child(n+12){display:none}.petal-fall{width:calc(var(--petal-size) * .8);height:calc(var(--petal-size) * .8)}}
+@media(prefers-reduced-motion:reduce){.falling-petals{display:none}.petal-fall,.petal-sway,.marigold-petal{animation:none}}

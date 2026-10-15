@@ -1,0 +1,69 @@
+/* Clip decorative overflow without locking vertical scrolling or pinch zoom. */
+html,body{width:100%;max-width:100%;overflow-x:hidden;overscroll-behavior-x:none}
+@supports(overflow:clip){html,body{overflow-x:clip}}
+#root,#root>div,main{min-width:0;max-width:100%}
+.section>*,.hero-copy,.invitation-section>*,.poster-copy{min-width:0}
+.garland-divider{overflow:hidden}
+img,iframe{max-width:100%}
+@media(max-width:700px){
+  .section{max-width:100%}
+  .hero-copy{width:100%}
+  .hero-date-banner span{min-width:0}
+  .hero-date-banner strong{white-space:normal}
+  .invitation-section{width:calc(100% - 32px);max-width:calc(100% - 32px)}
+  .invitation-section h2,.closing-section h2{font-size:clamp(32px,9vw,43px);overflow-wrap:break-word}
+  .poster-section{overflow:hidden}
+  .poster-actions>*{max-width:100%}
+  .map-frame{width:100%;min-width:0;overflow:hidden}
+  .tradition-strip{flex-wrap:wrap}
+  footer{min-width:0;overflow-wrap:anywhere}
+}
+
+footer{flex-wrap:wrap}
+.footer-copyright{flex-basis:100%;display:block;text-align:center;padding-top:18px;border-top:1px solid #a28c6422;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#b4ad98}
+.location-address{font-family:"IM Fell English",Georgia,serif;font-size:22px;line-height:1.6;color:#d0c4ad;margin:24px 0;overflow-wrap:anywhere}
+
+.event-footer{display:block;max-width:none;padding:58px max(24px,calc((100vw - 1192px)/2)) 24px;background:radial-gradient(ellipse at 10% 0%,#a6632026,transparent 60%),#0d100d;border-top:1px solid #c5935266;text-align:left;color:#d2c5ac}
+.footer-main{display:grid;grid-template-columns:1.1fr 1fr .8fr;gap:48px;align-items:center;padding-bottom:42px}
+.footer-kicker{font-size:11px;letter-spacing:2px;color:#d8a365;margin:0 0 17px}
+.event-footer .footer-brand{display:inline-block;width:auto;font-size:clamp(36px,4vw,51px);line-height:1.05;color:#f0e4c9;letter-spacing:0;text-decoration:none}
+.event-footer .footer-brand em{font-style:normal;color:#d4a36b}
+.footer-message{font-family:"IM Fell English",Georgia,serif;font-size:19px;line-height:1.5;margin:20px 0 0;color:#c7baa1}
+.footer-meeting h2{font-size:28px;color:#e7d5b4;margin:0 0 18px}
+.footer-meeting p{font-family:"IM Fell English",Georgia,serif;font-size:19px;line-height:1.5;margin:8px 0}
+.footer-meeting a,.footer-links a,.footer-bottom a{display:flex;gap:12px;align-items:center;color:#e3be8a;text-decoration:none;min-height:44px}
+.footer-meeting a{font-size:12px;margin-top:12px}
+.footer-links{display:grid;gap:9px;font-size:13px}
+.footer-links a{justify-content:space-between;border-bottom:1px solid #ba945333;padding:8px 0}
+.footer-bottom{border-top:1px solid #c29e5f40;padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#c1b8a5}
+.footer-bottom small{font-size:13px}
+.event-footer a:hover{color:#fff2d7}
+.event-footer a:focus-visible{outline:2px solid #e1ba7b;outline-offset:5px}
+@media(max-width:900px){.footer-main{grid-template-columns:1fr 1fr;gap:32px}.footer-identity{grid-column:1/-1}.footer-bottom{flex-wrap:wrap}}
+@media(max-width:540px){.event-footer{padding:38px 24px 20px}.footer-main{grid-template-columns:1fr;gap:30px;padding-bottom:30px}.footer-identity{grid-column:auto}.footer-bottom{display:grid;gap:10px}.footer-links{font-size:14px}}
+
+.community-invitation{grid-template-columns:1.1fr 1fr;gap:38px 48px;padding:64px 48px;background:radial-gradient(ellipse at 0% 55%,#a2612020,transparent 65%),#10120f}
+.participation-heading{grid-column:1/-1}
+.community-invitation h2{font-size:clamp(44px,5.4vw,74px);line-height:1.06;margin:0}
+.community-invitation .eyebrow{font-size:12px}
+.participation-photo{margin:0;align-self:start;padding:9px;background:#d0ba91;transform:rotate(-1deg);box-shadow:0 18px 38px #0005}
+.participation-photo img{display:block;width:100%;height:auto}
+.participation-photo figcaption{padding:15px 8px 9px;color:#332b20;font-family:"IM Fell English",Georgia,serif;font-size:18px;line-height:1.35;text-align:center;font-style:italic}
+.participation-copy h3{font-size:clamp(28px,2.8vw,36px);line-height:1.16;color:#e9d9b9;margin:0 0 12px}
+.community-invitation .participation-copy p{font-family:"IM Fell English",Georgia,serif;font-size:21px;line-height:1.6;color:#d0c5b0;margin:0;max-width:none}
+.participation-business{border-top:1px solid #ba945344;margin-top:25px;padding-top:25px}
+.community-invitation .invitation-sign{display:block;margin-top:26px;font-size:20px;line-height:1.5;color:#cba778}
+@media(max-width:800px){.community-invitation{grid-template-columns:1fr;gap:30px;padding:40px 24px}.community-invitation h2{font-size:clamp(36px,7.5vw,58px)}.participation-heading{grid-column:auto}.community-invitation .participation-copy p{font-size:20px}.participation-photo{max-width:560px;width:100%;box-sizing:border-box;justify-self:center}}
+
+.footer-bottom>small,.footer-bottom>span{font-family:"Pirata One",Georgia,serif;font-size:21px;font-weight:400;line-height:1.4;letter-spacing:.2px;color:#d9c8a8}
+@media(max-width:540px){.footer-bottom>small,.footer-bottom>span{font-size:20px}}
+
+.anniversary-strip{gap:48px;padding:26px 24px;background:linear-gradient(110deg,#17180f,#0c0e0e 65%);color:#dbccaf;letter-spacing:0}
+.strip-anniversary{display:flex;align-items:center;gap:14px;margin:0}
+.strip-anniversary strong{font-family:"Pirata One",Georgia,serif;font-size:56px;font-weight:400;line-height:1;color:#d0a16a}
+.anniversary-strip .strip-anniversary span{display:block;max-width:110px;font-family:"Pirata One",Georgia,serif;font-size:25px;line-height:1.1}
+.strip-message{margin:0;padding-left:36px;border-left:1px solid #bd965345;font-family:"IM Fell English",Georgia,serif;font-size:23px;line-height:1.4}
+.strip-message em{color:#cba87e}
+.strip-edition{margin:0;font-size:11px;letter-spacing:1.5px;color:#b9a78a}
+.strip-edition b{display:block;font-family:"Pirata One",Georgia,serif;font-size:30px;font-weight:400;color:#d9c7a6;margin-top:5px}
+@media(max-width:700px){.anniversary-strip{gap:22px;padding:26px 20px}.strip-anniversary strong{font-size:48px}.strip-message{border-left:0;border-top:1px solid #bd965345;padding:18px 0 0;text-align:center;font-size:21px;flex-basis:100%;order:3}.strip-edition{font-size:10px}.strip-edition b{font-size:27px}}

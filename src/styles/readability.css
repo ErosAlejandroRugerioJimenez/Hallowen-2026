@@ -1,0 +1,54 @@
+/* Texto legible sin perder el ambiente de terror. */
+.hero-description,.tradition-copy p,.invitation-section p:not(.eyebrow),.committee-section p:not(.eyebrow),.location-copy>p:not(.eyebrow){
+  font-family:"IM Fell English",Georgia,serif;font-size:18px;line-height:1.75;color:#c2c0af;
+}
+.hero-description{max-width:420px}
+.eyebrow,.invitation-section .eyebrow,.committee-section .eyebrow,.closing-section .eyebrow{font-size:12px;letter-spacing:1.8px;color:#c1a47f;line-height:1.8}
+.hero .eyebrow{font-size:12px}
+.hero-meta{font-size:14px;color:#d0c7b3;gap:15px 23px}
+.hero-meta span{line-height:1.6;align-items:flex-start}
+.hero-meta svg{margin-top:3px}
+.location-details{font-size:14px;color:#cbc1ab;gap:17px}
+.map-frame>a{font-size:12px}
+.closing-section p:not(.eyebrow){font-size:13px;line-height:1.8;color:#c0b7a2}
+.navigation a{font-size:12px;letter-spacing:.2px}
+.navigation{gap:22px}
+.nav-numeral{font-size:11px;color:#a28d6c}
+.brand-name small{font-size:9px;letter-spacing:2.5px}
+.edition{font-size:9px;letter-spacing:1px}
+.primary-link{font-size:12px;min-height:48px;line-height:1.6}
+.horror-whisper{font-size:11px;letter-spacing:1.4px;color:#bdb5a3}
+.scroll-cue{font-size:11px;letter-spacing:1.5px;color:#bcb9a6}
+.tradition-strip{font-size:11px;letter-spacing:1.4px}
+footer{font-size:11px;line-height:1.8;color:#b4ad98}
+.horror-backdrop{overflow:hidden}
+.candle-light{position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 95% 68%,#b7662022,transparent 32%),radial-gradient(ellipse at 36% 77%,#c9831810,transparent 18%);opacity:.5}
+.night-fog span{opacity:.5;background:radial-gradient(ellipse at 25% 55%,#87968718,transparent 45%),radial-gradient(ellipse at 65% 65%,#a2aca522,transparent 48%)}
+@media(prefers-reduced-motion:no-preference){
+  .horror-backdrop img{animation:living-scene 32s ease-in-out infinite alternate}
+  .candle-light{animation:living-candles 7s ease-in-out infinite}
+}
+@keyframes living-scene{from{transform:scale(1.025) translateX(-.3%)}to{transform:scale(1.065) translateX(.3%)}}
+@keyframes living-candles{0%,100%{opacity:.28}25%{opacity:.44}55%{opacity:.6}78%{opacity:.36}}
+@media(min-width:901px) and (max-width:1100px){.navigation{gap:17px}.navigation a{font-size:11px}.site-header{padding-left:24px;padding-right:24px}.brand-name b{font-size:23px}}
+@media(max-width:1050px){.hero h1{font-size:86px}.hero-description{max-width:400px}.horror-whisper{font-size:10px}}
+@media(max-width:700px){
+.hero{min-height:1040px;padding-bottom:115px}
+.hero h1{font-size:clamp(61px,14vw,96px)}
+.hero .eyebrow{font-size:11px;letter-spacing:1.8px}
+.hero-description,.tradition-copy p,.invitation-section p:not(.eyebrow),.committee-section p:not(.eyebrow),.location-copy>p:not(.eyebrow){font-size:17px;line-height:1.75}
+.eyebrow,.invitation-section .eyebrow,.committee-section .eyebrow,.closing-section .eyebrow{font-size:11px;letter-spacing:1.4px}
+.hero-meta{font-size:13px;gap:14px;flex-direction:column}
+.hero-meta span{align-items:center}.hero-meta svg{margin-top:0}
+.brand-name small{font-size:8px;letter-spacing:2px}
+.horror-whisper{font-size:10px;letter-spacing:1px;bottom:66px;line-height:1.8}
+.scroll-cue{font-size:10px;bottom:32px}
+.tradition-strip{font-size:10px;letter-spacing:.8px}
+.location-details{font-size:13px}.map-frame>a{font-size:12px}.closing-section p:not(.eyebrow){font-size:12px}
+footer{font-size:10px}
+.mobile-navigation{max-height:calc(100svh - 85px);overflow-y:auto}
+.menu-whisper{font-size:17px}
+.mobile-navigation>.eyebrow{font-size:10px}
+}
+@media(max-width:360px){.hero{min-height:1090px}.hero h1{font-size:61px}.hero-meta{font-size:12px}.hero .eyebrow{font-size:10px}.horror-whisper{font-size:9px}.brand-name small{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.horror-backdrop img,.candle-light{animation:none;transform:none}.night-fog span{animation:none}}
