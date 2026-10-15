@@ -35,12 +35,12 @@ footer{flex-wrap:wrap}
 .footer-meeting a{font-size:12px;margin-top:12px}
 .footer-links{display:grid;gap:9px;font-size:13px}
 .footer-links a{justify-content:space-between;border-bottom:1px solid #ba945333;padding:8px 0}
-.footer-bottom{border-top:1px solid #c29e5f40;padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#c1b8a5}
-.footer-bottom small{font-size:13px}
+.footer-bottom{border-top:1px solid #c29e5f40;padding-top:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:12px 20px;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#c1b8a5}
+.footer-bottom small{grid-column:1/-1;text-align:center;font-size:13px}.footer-bottom>a{justify-self:end}
 .event-footer a:hover{color:#fff2d7}
 .event-footer a:focus-visible{outline:2px solid #e1ba7b;outline-offset:5px}
 @media(max-width:900px){.footer-main{grid-template-columns:1fr 1fr;gap:32px}.footer-identity{grid-column:1/-1}.footer-bottom{flex-wrap:wrap}}
-@media(max-width:540px){.event-footer{padding:38px 24px 20px}.footer-main{grid-template-columns:1fr;gap:30px;padding-bottom:30px}.footer-identity{grid-column:auto}.footer-bottom{display:grid;gap:10px}.footer-links{font-size:14px}}
+@media(max-width:540px){.event-footer{padding:38px 24px 20px}.footer-main{grid-template-columns:1fr;gap:30px;padding-bottom:30px}.footer-identity{grid-column:auto}.footer-bottom{grid-template-columns:1fr;justify-items:center;text-align:center;gap:10px}.footer-bottom>a{justify-self:center}.footer-links{font-size:14px}}
 
 .community-invitation{grid-template-columns:1.1fr 1fr;gap:38px 48px;padding:64px 48px;background:radial-gradient(ellipse at 0% 55%,#a2612020,transparent 65%),#10120f}
 .participation-heading{grid-column:1/-1}
@@ -67,3 +67,4 @@ footer{flex-wrap:wrap}
 .strip-edition{margin:0;font-size:11px;letter-spacing:1.5px;color:#b9a78a}
 .strip-edition b{display:block;font-family:"Pirata One",Georgia,serif;font-size:30px;font-weight:400;color:#d9c7a6;margin-top:5px}
 @media(max-width:700px){.anniversary-strip{gap:22px;padding:26px 20px}.strip-anniversary strong{font-size:48px}.strip-message{border-left:0;border-top:1px solid #bd965345;padding:18px 0 0;text-align:center;font-size:21px;flex-basis:100%;order:3}.strip-edition{font-size:10px}.strip-edition b{font-size:27px}}
+
