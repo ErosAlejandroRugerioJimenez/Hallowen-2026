@@ -83,3 +83,28 @@ test('se puede reintentar al tocar sin esperar a que termine el autoplay bloquea
   await pending
   audio.dispose()
 })
+
+test('configura reproducción multimedia cuando Safari ofrece Audio Session', async () => {
+  FakeContext.blocked = false
+  const session = { type: 'auto' }
+  window.navigator = { audioSession: session }
+  const audio = new AmbientAudio()
+  assert.equal(session.type, 'playback')
+  await audio.play()
+  assert.equal(audio.isPlaying, true)
+  audio.dispose()
+  delete window.navigator
+})
+
+test('una interrupción de Safari requiere recuperar el contexto y actualiza el icono', async () => {
+  FakeContext.blocked = false
+  const changes = []
+  const audio = new AmbientAudio(value => changes.push(value))
+  await audio.play()
+  FakeContext.last.state = 'interrupted'
+  FakeContext.last.onstatechange()
+  assert.equal(audio.isPlaying, false)
+  assert.equal(audio.needsRestart, true)
+  assert.equal(changes.at(-1), false)
+  audio.dispose()
+})

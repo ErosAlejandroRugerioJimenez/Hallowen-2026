@@ -13,6 +13,12 @@ export class AmbientAudio {
   constructor(private onPlayingChange: (playing: boolean) => void = () => {}) {
     const AudioContextClass = window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
     if (!AudioContextClass) throw new Error('Web Audio no disponible')
+    // Safari supports a playback session so Web Audio uses media playback
+    // routing. Keep this optional for browsers without the Audio Session API.
+    const session = (window.navigator as Navigator & { audioSession?: { type: string } } | undefined)?.audioSession
+    if (session) {
+      try { session.type = 'playback' } catch { /* Continue with standard Web Audio. */ }
+    }
     this.context = new AudioContextClass()
     this.context.onstatechange = () => {
       if (!this.disposed) this.onPlayingChange(this.isPlaying)
@@ -117,6 +123,10 @@ export class AmbientAudio {
     }, delay)
   }
 
+  get needsRestart() {
+    return this.disposed || ['closed', 'interrupted'].includes(this.context.state)
+  }
+
   get isPlaying() {
     return !this.disposed && this.active && this.context.state === 'running'
   }
@@ -155,3 +165,4 @@ export class AmbientAudio {
     void this.context.close().catch(() => undefined)
   }
 }
+

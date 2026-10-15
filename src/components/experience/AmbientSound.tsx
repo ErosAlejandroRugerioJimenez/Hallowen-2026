@@ -11,9 +11,18 @@ export default function AmbientSound() {
 
   useEffect(() => {
     let disposed = false
-    const activate = () => {
+    let gestureUnlocked = false
+    let feedbackTimer: ReturnType<typeof setTimeout> | undefined
+    const activate = (fromGesture = false) => {
       if (disposed || !enabled.current || document.hidden) return
       try {
+        // A context created by blocked autoplay can remain unusable in Safari.
+        // Recreate it once, synchronously inside the first trusted interaction.
+        if (fromGesture && (!gestureUnlocked || engine.current?.needsRestart)) {
+          engine.current?.dispose()
+          engine.current = null
+          gestureUnlocked = true
+        }
         if (!engine.current) engine.current = new AmbientAudio(value => {
           if (!disposed) setPlaying(value)
         })
@@ -22,21 +31,27 @@ export default function AmbientSound() {
           if (!disposed && enabled.current) setError('Toca el icono para activar el ambiente.')
         })
         setError('')
+        clearTimeout(feedbackTimer)
+        if (fromGesture) feedbackTimer = setTimeout(() => {
+          if (!disposed && enabled.current && !engine.current?.isPlaying) {
+            setError('Toca de nuevo el icono para activar el sonido.')
+          }
+        }, 2000)
       } catch {
         if (!disposed) setError('No se pudo activar el sonido en este navegador.')
       }
     }
-    start.current = activate
+    start.current = () => activate(true)
     const onGesture = (event: Event) => {
       if (!event.isTrusted || (event.target instanceof Element && event.target.closest('.floating-ambient'))) return
-      if (!engine.current?.isPlaying) activate()
+      if (!engine.current?.isPlaying) activate(true)
     }
     const onVisibility = () => {
       if (document.hidden) void engine.current?.pause().catch(() => {})
       else activate()
     }
     document.addEventListener('click', onGesture)
-    document.addEventListener('touchend', onGesture, { passive: true })
+
     document.addEventListener('keydown', onGesture)
     document.addEventListener('visibilitychange', onVisibility)
     activate()
@@ -44,7 +59,7 @@ export default function AmbientSound() {
       disposed = true
       start.current = () => {}
       document.removeEventListener('click', onGesture)
-      document.removeEventListener('touchend', onGesture)
+      clearTimeout(feedbackTimer)
       document.removeEventListener('keydown', onGesture)
       document.removeEventListener('visibilitychange', onVisibility)
       engine.current?.dispose()
@@ -73,3 +88,4 @@ export default function AmbientSound() {
     </div>
   </div>
 }
+
