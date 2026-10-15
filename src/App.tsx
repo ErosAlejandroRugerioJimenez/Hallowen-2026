@@ -13,9 +13,11 @@ import EventPoster from './components/sections/EventPoster'
 import AmbientSound from './components/experience/AmbientSound'
 import FallingPetals from './components/decorations/FallingPetals'
 import { useReveal } from './hooks/useReveal'
+import { useSectionNavigation } from './hooks/useSectionNavigation'
 
 export default function App() {
   const page = useReveal()
+  useSectionNavigation()
   return (
     <LazyMotion features={domAnimation}>
       <div ref={page}>
@@ -39,4 +41,5 @@ export default function App() {
     </LazyMotion>
   )
 }
+
 
