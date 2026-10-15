@@ -50,17 +50,21 @@ export default function AmbientSound() {
       if (document.hidden) void engine.current?.pause().catch(() => {})
       else activate()
     }
-    document.addEventListener('click', onGesture)
+    // Capture the first touch even when a child control stops propagation.
+    // The audio toggle is excluded above so a mute never turns itself back on.
+    document.addEventListener('pointerup', onGesture, { capture: true, passive: true })
+    document.addEventListener('click', onGesture, true)
 
-    document.addEventListener('keydown', onGesture)
+    document.addEventListener('keydown', onGesture, true)
     document.addEventListener('visibilitychange', onVisibility)
     activate()
     return () => {
       disposed = true
       start.current = () => {}
-      document.removeEventListener('click', onGesture)
+      document.removeEventListener('pointerup', onGesture, true)
+      document.removeEventListener('click', onGesture, true)
       clearTimeout(feedbackTimer)
-      document.removeEventListener('keydown', onGesture)
+      document.removeEventListener('keydown', onGesture, true)
       document.removeEventListener('visibilitychange', onVisibility)
       engine.current?.dispose()
       engine.current = null
@@ -88,4 +92,5 @@ export default function AmbientSound() {
     </div>
   </div>
 }
+
 
