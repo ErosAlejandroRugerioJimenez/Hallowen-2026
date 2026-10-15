@@ -35,7 +35,7 @@ export default function EventPoster() {
     <a className="poster-preview" href="/images/cartel-concursos-2026.jpg" target="_blank" rel="noopener noreferrer" aria-label="Abrir cartel en tamaño completo">
       <img src="/images/cartel-concursos-2026.webp" alt="Cartel a dos tintas, 24 años de tradición: Calle de las Brujas 2026, Día de Muertos, 2 de noviembre, 5:30 p. m., Calle Allende" width="1024" height="1536" loading="lazy" decoding="async"/>
     </a>
-    <div className="poster-copy"><p className="eyebrow">QUE LA INVITACIÓN LLEGUE A TODOS</p><h2 id="poster-title">Comparte<br/><em>esta noche.</em></h2><p>Guarda el cartel y pásalo a tus vecinos, familia y amigos. Nos vemos en Calle Allende.</p>
+    <div className="poster-copy"><p className="eyebrow">QUE LA INVITACIÓN LLEGUE A TODOS</p><h2 id="poster-title">Comparte<br/><em>esta noche.</em></h2><p>Guarda el cartel y pásalo a tus vecinos, familia y amigos. Nos vemos en la Calle de las Brujas.</p>
       <div className="poster-actions">
         <a ref={downloadLink} className="primary-link" href="/images/cartel-concursos-2026.jpg" download="calle-de-las-brujas-2026.jpg"><Download size={18}/> Descargar cartel</a>
         <button type="button" className="poster-share" disabled={busy} onClick={() => void share()}><Share2 size={18}/>{busy ? 'Preparando…' : 'Compartir cartel'}</button>
@@ -44,6 +44,7 @@ export default function EventPoster() {
     </div>
   </section>
 }
+
 
 
 
