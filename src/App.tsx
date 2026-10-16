@@ -8,6 +8,7 @@ import Memories from './components/sections/Memories'
 import Participation from './components/sections/Participation'
 import Location from './components/sections/Location'
 import Committee from './components/sections/Committee'
+import Supporters from './components/sections/Supporters'
 import Closing from './components/sections/Closing'
 import EventPoster from './components/sections/EventPoster'
 import AmbientSound from './components/experience/AmbientSound'
@@ -31,6 +32,7 @@ export default function App() {
           <Participation/>
           <Location/>
           <Committee/>
+          <Supporters/>
           <EventPoster/>
           <Closing/>
         </main>
@@ -41,5 +43,6 @@ export default function App() {
     </LazyMotion>
   )
 }
+
 
 

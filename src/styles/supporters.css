@@ -1,0 +1,25 @@
+.supporters-section{padding-top:55px;padding-bottom:65px;overflow:hidden}
+.supporters-heading{text-align:center;max-width:780px;margin:0 auto 34px}
+.supporters-heading h2{font-size:clamp(36px,4.8vw,64px);line-height:1.1}
+.supporters-heading>p:last-child{font-family:"IM Fell English",Georgia,serif;font-size:21px;line-height:1.65;color:#c7bca7;max-width:640px;margin:22px auto 0}
+.supporters-ribbon{overflow:hidden;border-top:1px solid #c39a5b55;border-bottom:1px solid #c39a5b55;background:radial-gradient(ellipse at 50% 50%,#b27b3020,transparent 75%),#10130f;padding:30px 0;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.supporters-track{display:flex;width:max-content;animation:supporters-travel 80s linear infinite}
+.supporters-group{display:flex;align-items:center;flex-shrink:0}
+.supporter-name{display:flex;align-items:center;gap:28px;white-space:nowrap;padding-right:48px;font-family:"Pirata One",Georgia,serif;font-size:clamp(28px,3vw,40px);line-height:1.3;color:#e0cfad}
+.supporter-name svg{color:#b58a54;flex-shrink:0}
+.supporters-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:19px}
+.supporters-bottom p{font-family:"IM Fell English",Georgia,serif;font-size:19px;font-style:italic;color:#bca17b;margin:0}
+.supporters-section[data-in-view="false"] .supporters-track,
+[data-page-hidden="true"] .supporters-track{animation-play-state:paused}
+@keyframes supporters-travel{to{transform:translateX(-50%)}}
+@media(max-width:700px){.supporters-section{padding-top:40px;padding-bottom:45px}.supporters-heading>p:last-child{font-size:19px}.supporters-ribbon{padding:24px 0}.supporter-name{gap:20px;padding-right:32px}.supporters-bottom{align-items:flex-start}.supporters-bottom p{font-size:17px;max-width:220px}}
+@media(prefers-reduced-motion:reduce){
+  .supporters-ribbon{mask-image:none}
+  .supporters-track{animation:none;width:auto}
+  .supporters-group{width:100%;flex-wrap:wrap;justify-content:center;gap:22px}
+  .supporters-group+ .supporters-group{display:none}
+  .supporter-name{white-space:normal;text-align:center;padding:0}
+  .supporter-name svg{display:none}
+  .supporters-toggle{display:none}
+}
+
