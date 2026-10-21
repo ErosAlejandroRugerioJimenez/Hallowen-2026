@@ -66,4 +66,3 @@
 .poster-save-dialog>a{display:inline-block;color:#e5c78f;font-size:16px;line-height:1.5;padding:14px 0;text-decoration:underline}
 @media(max-width:700px){.poster-save-dialog{padding:16px}.poster-save-header h3{font-size:28px}}
 
-.poster-actions button.primary-link{cursor:pointer;text-align:left;white-space:normal}

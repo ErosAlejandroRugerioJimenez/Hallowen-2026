@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Hand, Share2, X } from 'lucide-react'
+import { Download, Share2, X } from 'lucide-react'
 import { createPortal } from 'react-dom'
 import { event } from '../../data/event'
 
@@ -26,7 +26,7 @@ export default function EventPoster() {
       }
     } catch (error) {
       if (error instanceof DOMException && error.name === 'AbortError') return
-      setMessage('Abre el cartel, mantén presionada la imagen y guárdala en Fotos para compartirla.')
+      setMessage('Puedes usar Descargar cartel para guardarlo y compartirlo.')
     } finally {
       setBusy(false)
     }
@@ -38,7 +38,7 @@ export default function EventPoster() {
     <div className="poster-copy"><p className="eyebrow">LA INVITACIÓN ESTÁ HECHA</p><h2 id="poster-title">La invitación<br/><em>es para todos.</em></h2><p>Guárdalo y compártelo con los tuyos.</p>
       <p className="poster-date">{event.dateLabel} · Cita: {event.timeLabel}</p>
       <div className="poster-actions">
-        <button type="button" className="primary-link" onClick={openPoster}><Hand size={18}/> Mantén presionado para guardar</button>
+        <a className="primary-link" href="/images/cartel-concursos-2026.jpg" download="calle-de-las-brujas-2026.jpg"><Download size={18}/> Descargar cartel</a>
         <button type="button" className="poster-share" disabled={busy} onClick={() => void share()}><Share2 size={18}/>{busy ? 'Preparando…' : 'Compartir cartel'}</button>
       </div>
       <p className="poster-message" role="status">{message}</p>
