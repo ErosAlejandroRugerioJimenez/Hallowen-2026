@@ -21,6 +21,14 @@ export const supporters: Supporter[] = [
     name: 'Ferretería Flores',
     logo: '/images/apoyos/ferreteria-flores.webp',
   },
+  {
+    name: 'Cosmo Tour',
+    logoBackground: '#080b1c',
+    logo: '/images/apoyos/cosmo-tour.webp',
+  },
+  {
+    name: 'Liz Flores Beauty Studio',
+    logoBackground: '#f6e1de',
+    logo: '/images/apoyos/liz-flores-beauty-studio.webp',
+  },
 ]
-
-

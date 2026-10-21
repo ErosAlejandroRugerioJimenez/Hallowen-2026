@@ -53,3 +53,17 @@
 .poster-copy .poster-date{color:#dfc295;font-size:22px;border-top:1px solid #ac8c514a;padding-top:20px}
 @media(prefers-reduced-motion:no-preference){.scroll-cue svg{animation:scroll-invitation 2.5s ease-in-out infinite}@keyframes scroll-invitation{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}}
 @media(max-width:700px){.poster-section{padding-top:45px;padding-bottom:45px}.poster-copy .poster-date{font-size:20px}.scroll-cue{font-size:10px;letter-spacing:1px}}
+
+/* Visor para guardar el cartel desde el menú nativo de la imagen. */
+.poster-preview{padding:0;background:transparent;cursor:zoom-in}
+.poster-save-dialog{position:fixed;inset:0;margin:auto;width:calc(100% - 24px);max-width:680px;max-height:90dvh;padding:22px;background:#141610;color:#e4d7bc;border:1px solid #a08a5c80;overflow:auto;overscroll-behavior:contain}
+.poster-save-dialog::backdrop{background:#000c}
+.poster-save-header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.poster-save-header h3{font-family:"Pirata One",Georgia,serif;font-weight:400;font-size:32px;margin:0}
+.poster-save-header button{display:grid;place-items:center;flex-shrink:0;width:44px;height:44px;background:transparent;color:#e4d7bc;border:1px solid #a08a5c80;cursor:pointer}
+.poster-save-dialog p{font-family:"IM Fell English",Georgia,serif;font-size:19px;line-height:1.5;margin:16px 0}
+.poster-save-dialog img{display:block;width:100%;height:auto;user-select:auto;-webkit-user-select:auto;-webkit-touch-callout:default}
+.poster-save-dialog>a{display:inline-block;color:#e5c78f;font-size:16px;line-height:1.5;padding:14px 0;text-decoration:underline}
+@media(max-width:700px){.poster-save-dialog{padding:16px}.poster-save-header h3{font-size:28px}}
+
+.poster-actions button.primary-link{cursor:pointer;text-align:left;white-space:normal}
