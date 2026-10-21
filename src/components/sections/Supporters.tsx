@@ -1,4 +1,17 @@
-import { supporters } from '../../data/supporters'
+import { Sparkles } from 'lucide-react'
+import { supporters, type Supporter } from '../../data/supporters'
+
+function SupporterArtwork({ supporter }: { supporter: Supporter }) {
+  return supporter.logo ? <div className="supporter-logo" style={{ background: supporter.logoBackground }}>
+    <img src={supporter.logo} alt="" width="640" height="640" loading="lazy" decoding="async" draggable={false}/>
+  </div> : <div className="supporter-text">
+    <span>PARTE DE NUESTRA HISTORIA</span>
+    <span className="supporter-monogram" aria-hidden="true">AP</span>
+    <strong>{supporter.name}</strong>
+    <i aria-hidden="true"/>
+    <span>GRACIAS POR SUMARTE</span>
+  </div>
+}
 
 export default function Supporters() {
   if (!supporters.length) return null
@@ -7,28 +20,19 @@ export default function Supporters() {
   return <section id="apoyos" className="section supporters-section reveal" aria-labelledby="supporters-title">
     <div className="supporters-heading">
       <p className="eyebrow">EL APOYO QUE DA VIDA A NUESTRA CALLE</p>
-      <h2 id="supporters-title">Esta tradición también<br/><em>lleva su nombre.</em></h2>
-      <p>Gracias a los negocios, vecinos y amigos que hacen posible esta noche.</p>
+      <h2 id="supporters-title">Juntos hacemos<br/><em>tradición.</em></h2>
+      <p>Gracias a quienes se suman para hacer posible esta noche.</p>
+      <span className="supporters-ornament" aria-hidden="true"><i/><Sparkles size={19}/><i/></span>
     </div>
     <div className="supporters-ribbon" role="region" aria-label="Negocios que nos apoyan">
-      <div className="supporters-track" aria-hidden="true" style={{ animationDuration: Math.max(80, ribbon.length * 10) + 's' }}>
-        {[0, 1].map(copy => <div className="supporters-group" key={copy}>
-          {ribbon.map((supporter, index) => <figure className="supporter-card" data-repeat={index >= supporters.length} key={supporter.name + index}>
-            {supporter.logo ? <div className="supporter-logo" style={{ background: supporter.logoBackground }}>
-              <img src={supporter.logo} alt="" width="640" height="640" loading="lazy" decoding="async" draggable={false}/>
-            </div> : <div className="supporter-text">
-              <span>NEGOCIO QUE NOS APOYA</span>
-              <strong>{supporter.name}</strong>
-              <i aria-hidden="true"/>
-              <span>PARTE DE NUESTRA TRADICIÓN</span>
-            </div>}
-            <figcaption>{supporter.name}</figcaption>
-          </figure>)}
+      <div className="supporters-track" style={{ animationDuration: Math.max(80, ribbon.length * 10) + 's' }}>
+        {[0, 1].map(copy => <div className="supporters-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>
+          {ribbon.map((supporter, index) => <div className="supporter-card" data-repeat={index >= supporters.length} key={supporter.name + index} aria-hidden={index >= supporters.length ? true : undefined}>
+            <div className="supporter-artwork"><SupporterArtwork supporter={supporter}/></div>
+            <span className="supporter-caption"><span>{supporter.name}</span><small>CON NUESTRA COMUNIDAD</small></span>
+          </div>)}
         </div>)}
       </div>
-      <ul className="sr-only" aria-label="Lista de negocios que nos apoyan">
-        {supporters.map(supporter => <li key={supporter.name}>{supporter.name}</li>)}
-      </ul>
     </div>
   </section>
 }
