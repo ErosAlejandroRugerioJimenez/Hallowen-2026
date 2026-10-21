@@ -73,3 +73,7 @@
 
 .decorated-car-photo img{aspect-ratio:1;object-fit:cover;object-position:center bottom;height:auto}
 
+
+.hero .scroll-cue{font-size:14px;line-height:1.4;letter-spacing:1px;gap:12px;min-height:44px;color:#ead5ae}
+.hero .scroll-cue svg{width:26px;height:26px;color:#d6ac71;flex-shrink:0}
+@media(max-width:700px){.hero .scroll-cue{font-size:13px;letter-spacing:.7px;bottom:24px;max-width:calc(100% - 48px)}}

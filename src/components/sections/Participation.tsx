@@ -17,18 +17,18 @@ export default function Participation() {
       </figure>
       <div className="participation-copy">
         <div className="participation-block">
-          <h3>Ven como quieras.<br/>Pero ven con los tuyos.</h3>
-          <p>Trae tu carro o moto decorados, o súmate a pie con tu mejor disfraz. Invita a tu familia y amigos a celebrar estos 24 años de tradición.</p>
+          <h3>Ven con los tuyos.</h3>
+          <p>Decora tu carro o moto, o ven a pie con tu disfraz. ¡Súmate al desfile!</p>
         </div>
         <div className="participation-block participation-business">
-          <h3>Tu negocio también es parte.</h3>
-          <p>Participa con tu equipo, decora tu vehículo con temática de Día de Muertos y da a conocer tu negocio durante el desfile.</p>
+          <h3>¿Tienes un negocio?</h3>
+          <p>Participa con tu equipo y da a conocer tu negocio con un vehículo decorado.</p>
         </div>
-        <span className="invitation-sign">Tú también haces que nuestra calle cobre vida.</span>
       </div>
     </section>
   </>
 }
+
 
 
 
