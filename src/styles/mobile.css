@@ -68,3 +68,27 @@ footer{flex-wrap:wrap}
 .strip-edition b{display:block;font-family:"Pirata One",Georgia,serif;font-size:30px;font-weight:400;color:#d9c7a6;margin-top:5px}
 @media(max-width:700px){.anniversary-strip{gap:22px;padding:26px 20px}.strip-anniversary strong{font-size:48px}.strip-message{border-left:0;border-top:1px solid #bd965345;padding:18px 0 0;text-align:center;font-size:21px;flex-basis:100%;order:3}.strip-edition{font-size:10px}.strip-edition b{font-size:27px}}
 
+
+.footer-bottom .footer-back-top{font-family:"Pirata One",Georgia,serif;font-size:23px;line-height:1.3;letter-spacing:.3px;color:#e1c18d;padding:9px 16px;border:1px solid #b08a4f55;background:#9e6d2812;border-radius:3px}
+.footer-back-top svg{transition:transform .2s ease-out}
+@media(hover:hover){.footer-bottom .footer-back-top:hover{background:#a8792826;border-color:#d0a26599}.footer-back-top:hover svg{transform:translateY(-3px)}}
+@media(max-width:540px){.footer-bottom .footer-back-top{font-size:22px}}
+
+.brand-seal:has(img){border:1px solid #c7a57780;border-radius:50%;overflow:hidden;background:#dcc49a;width:52px;height:52px;flex-shrink:0}
+.brand-seal img{display:block;width:100%;height:100%}
+.menu-emblem{display:block;margin:0 auto 18px;border-radius:12px}
+@media(max-width:700px){.brand-seal:has(img){width:42px;height:42px}.brand-name b{letter-spacing:.4px}}
+
+
+@media(max-width:700px){.closing-section{background-image:linear-gradient(#080909a8,#080909e8),url('/images/street-background-mobile.webp')}}
+
+@media(max-width:1450px){.site-header .edition{display:none}}
+@media(max-width:1200px){
+  .site-header .navigation{display:none!important}
+  .site-header .menu-toggle{display:grid;place-items:center;width:42px;height:47px;border:1px solid #8e765044;border-radius:22px 22px 0 0;background:#080909aa;color:#baa586}
+  .site-header .mobile-navigation{display:flex;flex-direction:column;position:absolute;top:95px;left:0;right:0;padding:24px 32px;background:#090c0cfa;border-bottom:1px solid #997c5044;max-height:calc(100svh - 96px);overflow-y:auto;overscroll-behavior:contain}
+  .mobile-navigation>a{display:flex;align-items:center;gap:18px;padding:12px 0;border-bottom:1px solid #b1996d1a;font-family:"Pirata One",Georgia,serif;font-size:27px}
+  .mobile-navigation>a>span{font-family:"IM Fell English",Georgia,serif;font-size:12px;color:#8c795b;width:25px;flex-shrink:0}
+  .mobile-navigation>a>svg{margin-left:auto;flex-shrink:0}
+}
+@media(max-width:700px){.site-header .mobile-navigation{top:84px;max-height:calc(100svh - 85px);padding:20px 24px}.mobile-navigation>a{font-size:26px}.menu-emblem{margin-bottom:10px}}

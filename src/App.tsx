@@ -26,14 +26,15 @@ export default function App() {
         <Header/>
         <main id="contenido">
           <Hero/>
+          <Supporters/>
+          <EventPoster/>
           <TraditionStrip/>
           <Tradition/>
           <Memories/>
           <Participation/>
           <Location/>
           <Committee/>
-          <Supporters/>
-          <EventPoster/>
+
           <Closing/>
         </main>
         <Footer/>
@@ -43,6 +44,9 @@ export default function App() {
     </LazyMotion>
   )
 }
+
+
+
 
 
 

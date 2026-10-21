@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { m, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { ArrowDown, CalendarDays, Clock3, MapPin } from 'lucide-react'
+import { ChevronsDown, CalendarDays, Clock3, MapPin } from 'lucide-react'
 import { event } from '../../data/event'
 import Countdown from '../experience/Countdown'
 
@@ -30,14 +30,17 @@ export default function Hero() {
       </div>
       <h1 id="hero-title">La calle de<br /><em>las brujas.</em></h1>
       <p className="anniversary-message"><strong>24 años</strong><span>dando vida a nuestra tradición.</span></p>
-      <p className="hero-description">Cuando cae la noche, las sombras toman nuestra calle. Entre velas, catrinas y susurros, el desfile está por comenzar. Ven a celebrar a quienes siempre nos acompañan.</p>
+      <p className="hero-description">Entre velas, catrinas y susurros, nuestra calle vuelve a cobrar vida. Ven con los tuyos a celebrar a quienes siempre nos acompañan.</p>
       <Countdown />
       <a className="hero-location-link" href="#ubicacion"><MapPin size={18} strokeWidth={1.2}/>Ver ubicación</a>
     </div>
     <span className="horror-whisper">NO TODAS LAS SOMBRAS ESTÁN VACÍAS</span>
-    <a className="scroll-cue" href="#tradicion"><ArrowDown size={15}/> SIGUE EL CAMINO</a>
+    <a className="scroll-cue" href="#apoyos"><ChevronsDown size={22} strokeWidth={1.5}/> DESLIZA Y DESCUBRE MÁS</a>
   </section>
 }
+
+
+
 
 
 

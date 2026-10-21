@@ -22,10 +22,11 @@ export default function Footer() {
       </nav>
     </div>
     <div className="footer-bottom">
-      <small>© 2026 Biglat Technologies.</small>
+      <small>© 2026 · Desarrollado por Biglat Technologies.</small>
       <span>Hecho de comunidad y tradición.</span>
-      <a href="#contenido">Volver arriba <ArrowUp size={15}/></a>
+      <a className="footer-back-top" href="#contenido">Volver arriba <ArrowUp size={18} strokeWidth={1.5}/></a>
     </div>
   </footer>
 }
+
 

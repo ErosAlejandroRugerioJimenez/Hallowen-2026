@@ -1,25 +1,36 @@
-.supporters-section{padding-top:55px;padding-bottom:65px;overflow:hidden}
-.supporters-heading{text-align:center;max-width:780px;margin:0 auto 34px}
-.supporters-heading h2{font-size:clamp(36px,4.8vw,64px);line-height:1.1}
-.supporters-heading>p:last-child{font-family:"IM Fell English",Georgia,serif;font-size:21px;line-height:1.65;color:#c7bca7;max-width:640px;margin:22px auto 0}
-.supporters-ribbon{overflow:hidden;border-top:1px solid #c39a5b55;border-bottom:1px solid #c39a5b55;background:radial-gradient(ellipse at 50% 50%,#b27b3020,transparent 75%),#10130f;padding:30px 0;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.supporters-track{display:flex;width:max-content;animation:supporters-travel 80s linear infinite}
-.supporters-group{display:flex;align-items:center;flex-shrink:0}
-.supporter-name{display:flex;align-items:center;gap:28px;white-space:nowrap;padding-right:48px;font-family:"Pirata One",Georgia,serif;font-size:clamp(28px,3vw,40px);line-height:1.3;color:#e0cfad}
-.supporter-name svg{color:#b58a54;flex-shrink:0}
-.supporters-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:19px}
-.supporters-bottom p{font-family:"IM Fell English",Georgia,serif;font-size:19px;font-style:italic;color:#bca17b;margin:0}
+.supporters-section{padding-top:44px;padding-bottom:44px;overflow:hidden}
+.supporters-heading{text-align:center;max-width:780px;margin:0 auto 25px}
+.supporters-heading h2{font-size:clamp(34px,4.2vw,56px);line-height:1.1}
+.supporters-heading>p:last-child{font-family:"IM Fell English",Georgia,serif;font-size:20px;line-height:1.5;color:#c7bca7;max-width:580px;margin:16px auto 0}
+.supporters-ribbon{overflow:hidden;padding:16px 0;touch-action:pan-y pinch-zoom}
+.supporters-track{display:flex;width:max-content;animation:supporters-travel 80s linear infinite}.supporters-group{display:flex;align-items:stretch;flex-shrink:0}
+.supporter-card{flex:0 0 260px;width:260px;min-width:0;margin:0 16px 0 0;padding:8px;border:1px solid #ae8c5755;background:#1b1d15}
+.supporter-logo{aspect-ratio:1;background:#faf8f2;overflow:hidden;display:grid;place-items:center}
+.supporter-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.supporter-card figcaption{font-family:"Pirata One",Georgia,serif;font-size:23px;line-height:1.2;color:#e0cfad;text-align:center;padding:13px 4px 7px;overflow-wrap:anywhere}
+.supporter-text{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;padding:18px 10px;text-align:center;background:radial-gradient(ellipse at top,#a8793033,transparent 80%),#11150f;border:1px solid #b5905855}
+.supporter-text strong{font-family:"Pirata One",Georgia,serif;font-size:clamp(25px,2.7vw,37px);font-weight:400;line-height:1.1;color:#e5c18a;overflow-wrap:anywhere}
+.supporter-text>span{font-family:"Special Elite",Georgia,serif;font-size:8px;letter-spacing:1px;line-height:1.5;color:#c6b28d}
+.supporter-text i{width:45px;height:1px;background:#ba9257}
+
+@media(max-width:700px){
+  .supporters-section{padding-top:34px;padding-bottom:28px}
+  .supporters-heading{margin-bottom:18px}
+  .supporters-heading h2{font-size:clamp(32px,8.5vw,39px)}
+  .supporters-heading>p:last-child{font-size:19px;line-height:1.5}
+  .supporters-ribbon{margin:0 -6px;padding:10px 6px}
+  .supporter-card{flex-basis:clamp(230px,72vw,280px);width:clamp(230px,72vw,280px)}
+  .supporter-card figcaption{font-size:23px}
+  .supporter-text strong{font-size:33px}
+}
 .supporters-section[data-in-view="false"] .supporters-track,
 [data-page-hidden="true"] .supporters-track{animation-play-state:paused}
 @keyframes supporters-travel{to{transform:translateX(-50%)}}
-@media(max-width:700px){.supporters-section{padding-top:40px;padding-bottom:45px}.supporters-heading>p:last-child{font-size:19px}.supporters-ribbon{padding:24px 0}.supporter-name{gap:20px;padding-right:32px}.supporters-bottom{align-items:flex-start}.supporters-bottom p{font-size:17px;max-width:220px}}
 @media(prefers-reduced-motion:reduce){
-  .supporters-ribbon{mask-image:none}
   .supporters-track{animation:none;width:auto}
-  .supporters-group{width:100%;flex-wrap:wrap;justify-content:center;gap:22px}
-  .supporters-group+ .supporters-group{display:none}
-  .supporter-name{white-space:normal;text-align:center;padding:0}
-  .supporter-name svg{display:none}
-  .supporters-toggle{display:none}
+  .supporters-group{width:100%;flex-wrap:wrap;justify-content:center;gap:16px}
+  .supporters-group+.supporters-group,.supporter-card[data-repeat="true"]{display:none}
+  .supporter-card{margin:0;flex-basis:calc(50% - 8px)}
 }
+@media(prefers-reduced-motion:reduce) and (max-width:540px){.supporter-card{flex-basis:100%;max-width:280px;margin:auto}}
 

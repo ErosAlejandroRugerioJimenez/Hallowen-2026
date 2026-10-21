@@ -1,34 +1,34 @@
-import { Sparkles } from 'lucide-react'
 import { supporters } from '../../data/supporters'
 
 export default function Supporters() {
-  const names = supporters.map(name => name.trim()).filter(Boolean)
-  if (!names.length) return null
-  // Equal halves with sufficient width prevent gaps on wide screens.
-  const ribbon = Array.from({ length: Math.max(1, Math.ceil(8 / names.length)) }, () => names).flat()
+  if (!supporters.length) return null
+  const ribbon = Array.from({ length: Math.max(1, Math.ceil(6 / supporters.length)) }, () => supporters).flat()
+
   return <section id="apoyos" className="section supporters-section reveal" aria-labelledby="supporters-title">
     <div className="supporters-heading">
-      <p className="eyebrow">NEGOCIOS QUE SE SUMAN A NUESTRA HISTORIA</p>
-      <h2 id="supporters-title">Gracias por hacer posible<br/><em>esta tradición.</em></h2>
-      <p>A los negocios que se sumaron con su apoyo,Vecinos y Amigos,gracias por ser parte de esta noche.</p>
+      <p className="eyebrow">EL APOYO QUE DA VIDA A NUESTRA CALLE</p>
+      <h2 id="supporters-title">Esta tradición también<br/><em>lleva su nombre.</em></h2>
+      <p>Gracias a los negocios, vecinos y amigos que hacen posible esta noche.</p>
     </div>
-    <div className="supporters-ribbon">
+    <div className="supporters-ribbon" role="region" aria-label="Negocios que nos apoyan">
       <div className="supporters-track" aria-hidden="true" style={{ animationDuration: Math.max(80, ribbon.length * 10) + 's' }}>
         {[0, 1].map(copy => <div className="supporters-group" key={copy}>
-          {ribbon.map((name, index) => <span className="supporter-name" key={index}>
-            <Sparkles size={18} strokeWidth={1} />
-            <span>{name}</span>
-          </span>)}
+          {ribbon.map((supporter, index) => <figure className="supporter-card" data-repeat={index >= supporters.length} key={supporter.name + index}>
+            {supporter.logo ? <div className="supporter-logo" style={{ background: supporter.logoBackground }}>
+              <img src={supporter.logo} alt="" width="640" height="640" loading="lazy" decoding="async" draggable={false}/>
+            </div> : <div className="supporter-text">
+              <span>NEGOCIO QUE NOS APOYA</span>
+              <strong>{supporter.name}</strong>
+              <i aria-hidden="true"/>
+              <span>PARTE DE NUESTRA TRADICIÓN</span>
+            </div>}
+            <figcaption>{supporter.name}</figcaption>
+          </figure>)}
         </div>)}
       </div>
-      <ul className="sr-only" aria-label="Negocios que nos apoyan">
-        {names.map((name, index) => <li key={index}>{name}</li>)}
+      <ul className="sr-only" aria-label="Lista de negocios que nos apoyan">
+        {supporters.map(supporter => <li key={supporter.name}>{supporter.name}</li>)}
       </ul>
-    </div>
-    <div className="supporters-bottom">
-      <p>Su apoyo también deja huella en nuestra calle.</p>
     </div>
   </section>
 }
-
-

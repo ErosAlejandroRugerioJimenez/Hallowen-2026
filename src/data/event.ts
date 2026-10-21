@@ -7,6 +7,8 @@ export const event = {
     "startsAt": "2026-11-02T17:30:00-06:00",
     "location": {
         "street": "Calle Allende",
+        "addressLine": "Allende 9",
+        "addressArea": "Dolores Aquiahuac, 90845 San Francisco Tetlanohcan, Tlax., México",
         "address": "Allende 9, Dolores Aquiahuac, 90845 San Francisco Tetlanohcan, Tlax., México",
         "shortAddress": "Calle Allende · San Francisco Tetlanohcan, Tlaxcala",
         "embedUrl": "https://maps.google.com/maps?q=19.26165868000131%2C-98.17775865281955&z=15&t=m&hl=es&output=embed",
@@ -15,6 +17,8 @@ export const event = {
     }
 } as const;
 export const navigation = [
+    ["Agradecimientos", "#apoyos"],
+    ["Cartel", "#cartel"],
     ["La tradición", "#tradicion"],
     ["Fotos", "#recuerdos"],
     ["Participa", "#participa"],
@@ -28,6 +32,8 @@ export const committee = [
     { name: 'Erick Ricardo Hernández Rodríguez', role: 'Secretario' },
     { name: 'Jaime Aztatzi Flores', role: 'Vocal' },
 ] as const;
+
+
 
 
 

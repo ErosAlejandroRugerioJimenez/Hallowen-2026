@@ -1,14 +1,26 @@
-/**
- * Nombres de ejemplo. Sustituye cada texto por el negocio real.
- * Todos reciben el mismo reconocimiento, sin publicar montos ni aportaciones.
- */
-export const supporters: string[] = [
-  'Panadería del Barrio',
-  'Abarrotes La Esquina',
-  'Papelería Allende',
-  'Tortillería La Tradición',
-  'Florería Cempasúchil',
-  'Taller Los Amigos',
-  'Cafetería El Encuentro',
-  'Antojitos Doña Mary',
+export interface Supporter {
+  name: string
+  logo?: string
+  logoBackground?: string
+}
+
+export const supporters: Supporter[] = [
+  {
+    name: 'Rodzel Producciones',
+    logoBackground: '#000000',
+    logo: '/images/apoyos/rodzel-producciones.webp',
+  },
+  {
+    name: 'Abarrotes Pluma',
+  },
+  {
+    name: 'Panadería y Pastelería Del Pilar',
+    logo: '/images/apoyos/del-pilar.webp',
+  },
+  {
+    name: 'Ferretería Flores',
+    logo: '/images/apoyos/ferreteria-flores.webp',
+  },
 ]
+
+

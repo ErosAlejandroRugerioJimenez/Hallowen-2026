@@ -10,12 +10,14 @@ import './styles/mobile.css'
 import './styles/memories.css'
 import './styles/motion.css'
 import './styles/supporters.css'
+import './styles/compact.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App/>
   </StrictMode>,
 )
+
 
 
 

@@ -8,12 +8,12 @@ export default function Participation() {
         <p className="eyebrow">VECINOS, FAMILIAS Y NEGOCIOS</p>
         <h2 id="participation-title">La próxima historia<br/><em>la hacemos contigo.</em></h2>
       </div>
-      <figure className="participation-photo">
-        <img src="/images/desfile-participa-1140.webp"
-          srcSet="/images/desfile-participa-640.webp 640w, /images/desfile-participa-1140.webp 1140w"
-          sizes="(max-width: 800px) 90vw, 550px" width="1140" height="854"
-          alt="Figuras de calaveras y un caballo esquelético en un desfile de Día de Muertos." loading="lazy" decoding="async"/>
-        <figcaption>Dale vida a la tradición. Súmate al desfile.</figcaption>
+      <figure className="participation-photo decorated-car-photo">
+        <img src="/images/carro-decorado-1200.webp"
+          srcSet="/images/carro-decorado-640.webp 640w, /images/carro-decorado-1200.webp 1200w"
+          sizes="(max-width: 800px) 90vw, 550px" width="1200" height="1500"
+          alt="Carro rojo decorado con guirnaldas de flores naranjas y moradas durante un desfile de Día de Muertos." loading="lazy" decoding="async"/>
+        <figcaption>Tu carro también puede ser parte de la tradición.</figcaption>
       </figure>
       <div className="participation-copy">
         <div className="participation-block">
@@ -29,4 +29,6 @@ export default function Participation() {
     </section>
   </>
 }
+
+
 

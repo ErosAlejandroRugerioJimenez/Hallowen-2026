@@ -1,0 +1,75 @@
+/* Final rhythm and mobile layout; preserve reading size while reducing gaps. */
+.catrina-layer img{filter:saturate(.8) brightness(.91)}
+.layered-hero .hero-shade{background:linear-gradient(90deg,#070909f2,#070909d1 33%,#07090945 61%,#07090908),linear-gradient(0deg,#080909,transparent 30%)}
+.hero h1{text-shadow:0 3px 20px #0008}
+.tradition-section{padding-top:60px;padding-bottom:55px;gap:50px}
+.tradition-copy p{margin-top:0}
+.poster-section{padding-top:45px;padding-bottom:45px;gap:56px}
+.poster-copy>p:not(.eyebrow){margin:18px 0;line-height:1.5}
+.poster-copy .poster-date{margin:18px 0;font-size:23px}
+.poster-copy .poster-message:empty{display:none}
+.location-address strong,.location-address span{display:block}
+.location-copy .location-address strong{font-family:"Pirata One",Georgia,serif;font-size:38px;line-height:1.2;font-weight:400;color:#e0cfac;margin-bottom:8px}
+.location-copy .location-address span{font-family:"IM Fell English",Georgia,serif;font-size:20px;line-height:1.5;color:#c8bda5}
+.committee-section{padding-top:55px;padding-bottom:55px}
+.committee-icon{width:52px;height:62px;margin-bottom:20px}
+.committee-section p:not(.eyebrow){margin:18px auto;max-width:600px}
+.committee-members{margin-top:28px;gap:14px}
+.committee-members li{padding:20px 16px;border-radius:24px 24px 0 0}
+.committee-members h3{margin-top:8px;font-size:23px}
+.community-invitation{padding-top:45px;padding-bottom:45px;gap:28px 40px}
+@media(max-width:700px){
+  .section{padding-top:42px;padding-bottom:42px}
+  .layered-hero{padding-top:315px;padding-bottom:100px}
+  .catrina-layer{top:90px;right:0;width:85%;height:455px}
+  .layered-hero .hero-shade{background:linear-gradient(0deg,#080909 4%,#080909fc 34%,#080909b8 58%,#08090914 82%)}
+  .hero .eyebrow{margin-bottom:17px}
+  .hero-date-banner{margin-bottom:20px;background:#15170fe8}
+  .hero h1{font-size:clamp(57px,14vw,82px);line-height:1.02}
+  .anniversary-message{flex-direction:row;align-items:center;gap:14px;margin:21px 0}
+  .anniversary-message strong{font-size:46px;white-space:nowrap}
+  .anniversary-message span{font-size:20px;max-width:185px}
+  .hero-description{line-height:1.65}
+  .event-countdown{margin-top:21px}
+  .countdown-unit{padding-top:10px;padding-bottom:9px}
+  .hero-location-link{margin-top:19px}
+  .tradition-section{gap:20px}
+  .tradition-section h2,.location-copy h2{font-size:clamp(33px,9vw,43px)}
+  .tradition-copy p{font-size:19px;line-height:1.6;margin-bottom:18px}
+  .poster-section{padding-top:30px;padding-bottom:32px;gap:24px}
+  .poster-preview{max-width:270px;width:82%}
+  .poster-copy h2{font-size:clamp(34px,9vw,45px)}
+  .poster-copy>p:not(.eyebrow){font-size:19px;margin:14px 0}
+  .poster-copy .poster-date{font-size:21px;padding-top:15px}
+  .poster-actions{gap:10px}
+  .poster-actions .primary-link,.poster-share{padding:13px 14px;min-height:46px}
+  .location-section{gap:23px}
+  .location-copy .location-address{margin:20px 0}
+  .location-copy .location-address strong{font-size:35px}
+  .location-copy .location-address span{font-size:19px}
+  .location-details{gap:14px;margin-bottom:24px}
+  .map-frame iframe{height:280px}
+  .committee-section{padding-top:38px;padding-bottom:38px}
+  .committee-section p:not(.eyebrow){font-size:18px;line-height:1.6}
+  .committee-members{grid-template-columns:1fr;gap:10px;margin-top:23px;text-align:left}
+  .committee-members li,.committee-members li:nth-child(4),.committee-members li:last-child{grid-column:auto;width:100%;padding:15px 18px;border-radius:8px}
+  .committee-role{font-size:12px}
+  .committee-members h3{font-size:23px;line-height:1.25;margin-top:5px}
+  .community-invitation{padding:32px 22px;gap:24px}
+  .community-invitation .participation-copy p{font-size:19px;line-height:1.55}
+  .participation-business{margin-top:20px;padding-top:20px}
+  .memories-section{padding-top:32px;padding-bottom:35px}
+  .memories-heading{margin-bottom:23px;gap:15px}
+  .album-label{padding:12px 0}
+  .memories-viewport{padding-top:22px;padding-bottom:24px}
+  .closing-section{padding:55px 24px}
+}
+@media(max-width:360px){
+  .anniversary-message strong{font-size:40px}
+  .anniversary-message span{font-size:18px;max-width:150px}
+  .poster-actions{display:grid;grid-template-columns:1fr}
+  .poster-actions .primary-link,.poster-share{justify-content:center}
+}
+
+.decorated-car-photo img{aspect-ratio:1;object-fit:cover;object-position:center bottom;height:auto}
+

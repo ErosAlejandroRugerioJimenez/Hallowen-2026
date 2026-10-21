@@ -6,7 +6,7 @@ export default function Location() {
     <div className="location-copy">
       <p className="eyebrow">NOS VEMOS EN LA CALLE</p>
       <h2 id="location-title">Aquí empieza<br/><em>nuestra tradición.</em></h2>
-      <p className="location-address">{event.location.address}</p>
+      <p className="location-address"><strong>{event.location.addressLine}</strong><span>{event.location.addressArea}</span></p>
       <div className="location-details">
         <span><CalendarDays size={17} strokeWidth={1}/>{event.dateLabel}</span>
         <span><Clock3 size={17} strokeWidth={1}/>Cita: {event.timeLabel}</span>
@@ -19,5 +19,6 @@ export default function Location() {
     </div>
   </section>
 }
+
 
 

@@ -95,7 +95,7 @@ export default function Memories() {
       <div className="album-label" aria-hidden="true"><span>CALLE ALLENDE</span><span>ARCHIVO DE RECUERDOS / {String(memories.length).padStart(2, '0')}</span></div>
       <div ref={emblaRef} className="memories-viewport" tabIndex={0}
         aria-label="Fotografías. Desliza o usa las flechas del teclado."
-        onFocus={event => { if (event.target.matches(':focus-visible')) setPaused(true) }}
+        onFocus={event => { if (event.target === event.currentTarget && event.currentTarget.matches(':focus-visible')) setPaused(true) }}
         onKeyDown={event => {
           if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
             event.preventDefault()
@@ -114,7 +114,7 @@ export default function Memories() {
                   alt={photo.alt} width={photo.width} height={photo.height} loading="eager" decoding="async" draggable={false}/>} 
                 <button className="memory-expand" type="button" tabIndex={index === active ? 0 : -1}
                   aria-label={'Ampliar fotografía ' + (index + 1)}
-                  onClick={() => { setPaused(true); setExpanded(index) }}><Expand size={18}/></button>
+                  onClick={() => setExpanded(index)}><Expand size={18}/></button>
               </div>
               <figcaption><span>{photo.year ? 'Edición ' + photo.year : 'Nuestra gente, nuestra historia'}</span><b>{String(index + 1).padStart(2, '0')}</b></figcaption>
             </figure>
@@ -142,6 +142,7 @@ export default function Memories() {
     </dialog>
   </section>
 }
+
 
 
 

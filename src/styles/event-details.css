@@ -48,3 +48,8 @@
 .committee-members h3{font-family:"IM Fell English",Georgia,serif;font-size:25px;font-weight:400;line-height:1.35;color:#ddd2b9;margin:14px 0 0;overflow-wrap:anywhere}
 @media(max-width:700px){.anniversary-message{gap:14px}.anniversary-message strong{font-size:52px}.anniversary-message span{font-size:22px}.committee-members{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.committee-members li,.committee-members li:nth-child(4){grid-column:auto;padding:25px 14px}.committee-members li:last-child{grid-column:1 / -1;width:calc(50% - 7px);justify-self:center}.committee-members h3{font-size:22px}}
 @media(max-width:420px){.anniversary-message{align-items:flex-start;flex-direction:column;gap:8px}.anniversary-message span{max-width:260px}.committee-members{grid-template-columns:1fr}.committee-members li:last-child{width:100%}.committee-members h3{font-size:25px}}
+
+.poster-section{padding-top:70px;padding-bottom:70px}
+.poster-copy .poster-date{color:#dfc295;font-size:22px;border-top:1px solid #ac8c514a;padding-top:20px}
+@media(prefers-reduced-motion:no-preference){.scroll-cue svg{animation:scroll-invitation 2.5s ease-in-out infinite}@keyframes scroll-invitation{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}}
+@media(max-width:700px){.poster-section{padding-top:45px;padding-bottom:45px}.poster-copy .poster-date{font-size:20px}.scroll-cue{font-size:10px;letter-spacing:1px}}
