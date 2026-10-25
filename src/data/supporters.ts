@@ -31,4 +31,22 @@ export const supporters: Supporter[] = [
     logoBackground: '#f6e1de',
     logo: '/images/apoyos/liz-flores-beauty-studio.webp',
   },
+  {
+    name: 'Depósito Rodríguez',
+    logoBackground: '#080808',
+    logo: '/images/apoyos/deposito-rodriguez.webp',
+  },
+  {
+    name: 'Materiales Rojas',
+    logoBackground: '#ffffff',
+    logo: '/images/apoyos/materiales-rojas.webp',
+  },
+  {
+    name: 'Pollería Juanes',
+    logoBackground: '#f4f2ee',
+    logo: '/images/apoyos/polleria-juanes.webp',
+  },
+  {
+    name: 'Reyes',
+  },
 ]
