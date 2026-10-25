@@ -49,4 +49,9 @@ export const supporters: Supporter[] = [
   {
     name: 'Reyes',
   },
+  {
+    name: 'Banquetes The Godfather Bombón',
+    logoBackground: '#a72d36',
+    logo: '/images/apoyos/banquetes-the-godfather.webp',
+  },
 ]
