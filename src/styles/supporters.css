@@ -41,3 +41,11 @@
   .supporter-card{margin:0;flex-basis:calc(50% - 8px);transition:none}
 }
 @media(prefers-reduced-motion:reduce) and (max-width:540px){.supporter-card{flex-basis:100%;max-width:280px;margin:auto}}
+
+.supporters-track[data-paused="true"]{animation-play-state:paused}
+.supporters-controls{display:flex;justify-content:center;gap:10px;margin:4px auto 0}
+.supporters-controls button{display:grid;place-items:center;width:46px;height:46px;padding:0;border:1px solid #a58a5355;border-radius:50%;background:#141810;color:#dbc7a1;cursor:pointer;transition:background .2s}
+.supporters-controls button:hover{background:#2a2b1c;border-color:#c6a36b}
+.supporters-controls button svg{flex-shrink:0}
+
+@media(prefers-reduced-motion:reduce){.supporters-controls{display:none}}
