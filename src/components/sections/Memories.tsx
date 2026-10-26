@@ -22,7 +22,7 @@ export default function Memories() {
     if (!api) return
     const select = () => setActive(api.selectedScrollSnap())
     const startDrag = () => setDragging(true)
-    const endDrag = () => { resumeAfter.current = Date.now() + 2000; setDragging(false) }
+    const endDrag = () => { resumeAfter.current = Date.now() + 30; setDragging(false) }
     select()
     api.on('select', select).on('reInit', select).on('pointerDown', startDrag).on('pointerUp', endDrag)
     return () => { api.off('select', select).off('reInit', select).off('pointerDown', startDrag).off('pointerUp', endDrag) }
@@ -56,7 +56,10 @@ export default function Memories() {
     const stop = () => { window.clearTimeout(timer); timer = undefined }
     const schedule = () => {
       stop()
-      if (visible && !document.hidden) timer = window.setTimeout(() => api.scrollNext(), Math.max(2000, resumeAfter.current - Date.now()))
+      if (visible && !document.hidden) {
+        const delay = resumeAfter.current ? Math.max(0, resumeAfter.current - Date.now()) : 2000
+        timer = window.setTimeout(() => { resumeAfter.current = 0; api.scrollNext() }, delay)
+      }
     }
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting
@@ -77,7 +80,7 @@ export default function Memories() {
   }, [expanded])
 
   function navigate(direction: number) {
-    resumeAfter.current = Date.now() + 2000
+    resumeAfter.current = Date.now() + 30
     if (direction > 0) api?.scrollNext(Boolean(reducedMotion))
     else api?.scrollPrev(Boolean(reducedMotion))
   }
