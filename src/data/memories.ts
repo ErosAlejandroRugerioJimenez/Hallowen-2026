@@ -142,5 +142,14 @@ export const memories: MemoryPhoto[] = [
     "smallWidth": 640,
     "alt": "Participantes sobre el escenario durante una edición anterior.",
     "year": null
+  },
+  {
+    "src": "/images/recuerdos/bc5261121c79a5b61e66-1600.webp",
+    "smallSrc": "/images/recuerdos/bc5261121c79a5b61e66-640.webp",
+    "width": 480,
+    "height": 360,
+    "smallWidth": 480,
+    "alt": "Participante con sombrero y guante de cuchillas de un disfraz de terror.",
+    "year": null
   }
 ]

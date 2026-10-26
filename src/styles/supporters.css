@@ -49,3 +49,5 @@
 .supporters-controls button svg{flex-shrink:0}
 
 @media(prefers-reduced-motion:reduce){.supporters-controls{display:none}}
+
+.supporters-ribbon{cursor:grab;user-select:none;-webkit-user-select:none}.supporters-ribbon:active{cursor:grabbing}

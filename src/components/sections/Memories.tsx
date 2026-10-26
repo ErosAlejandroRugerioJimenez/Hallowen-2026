@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { ArrowLeft, ArrowRight, Camera, Expand, Pause, Play, X } from 'lucide-react'
+import { Camera, Expand, Pause, Play, X } from 'lucide-react'
 import { useReducedMotion } from 'motion/react'
 import { memories } from '../../data/memories'
 
@@ -15,13 +15,14 @@ export default function Memories() {
   const [expanded, setExpanded] = useState<number | null>(null)
   const section = useRef<HTMLElement>(null)
   const dialog = useRef<HTMLDialogElement>(null)
+  const resumeAfter = useRef(0)
   const multiple = memories.length > 1
 
   useEffect(() => {
     if (!api) return
     const select = () => setActive(api.selectedScrollSnap())
     const startDrag = () => setDragging(true)
-    const endDrag = () => setDragging(false)
+    const endDrag = () => { resumeAfter.current = Date.now() + 2000; setDragging(false) }
     select()
     api.on('select', select).on('reInit', select).on('pointerDown', startDrag).on('pointerUp', endDrag)
     return () => { api.off('select', select).off('reInit', select).off('pointerDown', startDrag).off('pointerUp', endDrag) }
@@ -55,7 +56,7 @@ export default function Memories() {
     const stop = () => { window.clearTimeout(timer); timer = undefined }
     const schedule = () => {
       stop()
-      if (visible && !document.hidden) timer = window.setTimeout(() => api.scrollNext(), 2000)
+      if (visible && !document.hidden) timer = window.setTimeout(() => api.scrollNext(), Math.max(2000, resumeAfter.current - Date.now()))
     }
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting
@@ -76,7 +77,7 @@ export default function Memories() {
   }, [expanded])
 
   function navigate(direction: number) {
-    setPaused(true)
+    resumeAfter.current = Date.now() + 2000
     if (direction > 0) api?.scrollNext(Boolean(reducedMotion))
     else api?.scrollPrev(Boolean(reducedMotion))
   }
@@ -123,15 +124,8 @@ export default function Memories() {
       </div>
       <div className="memories-controls">
         <span className="memory-count" aria-live={paused || reducedMotion ? 'polite' : 'off'}><b>{String(active + 1).padStart(2, '0')}</b><span>/ {String(memories.length).padStart(2, '0')}</span></span>
-        {multiple && <div className="memory-dots" aria-label="Elegir fotografía">
-          {memories.map((photo, index) => <button key={photo.src + index} type="button" className={index === active ? 'is-active' : ''}
-            aria-label={'Ver fotografía ' + (index + 1)} aria-current={index === active ? 'true' : undefined}
-            onClick={() => { setPaused(true); api?.scrollTo(index, Boolean(reducedMotion)) }}><span/></button>)}
-        </div>}
         {multiple && <div className="memory-buttons">
-          <button type="button" aria-label="Foto anterior" onClick={() => navigate(-1)}><ArrowLeft size={20}/></button>
-          {!reducedMotion && <button type="button" aria-label={paused ? 'Reproducir carrusel' : 'Pausar carrusel'} title={paused ? 'Reanudar cambio automático de fotos' : 'Pausar cambio automático de fotos'} onClick={() => setPaused(value => !value)}>{paused ? <Play size={15}/> : <Pause size={15}/>}</button>}
-          <button type="button" aria-label="Foto siguiente" onClick={() => navigate(1)}><ArrowRight size={20}/></button>
+          {!reducedMotion && <button type="button" aria-label={paused ? 'Reproducir carrusel' : 'Pausar carrusel'} title={paused ? 'Reanudar cambio automático de fotos' : 'Pausar cambio automático de fotos'} onClick={() => { resumeAfter.current = 0; setPaused(value => !value) }}>{paused ? <Play size={15}/> : <Pause size={15}/>}</button>}
         </div>}
       </div>
       <p className="memory-hint">Desliza y vuelve a vivir la tradición.</p>
