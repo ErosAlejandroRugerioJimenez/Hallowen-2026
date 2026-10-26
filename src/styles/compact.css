@@ -77,3 +77,14 @@
 .hero .scroll-cue{font-size:14px;line-height:1.4;letter-spacing:1px;gap:12px;min-height:44px;color:#ead5ae}
 .hero .scroll-cue svg{width:26px;height:26px;color:#d6ac71;flex-shrink:0}
 @media(max-width:700px){.hero .scroll-cue{font-size:13px;letter-spacing:.7px;bottom:24px;max-width:calc(100% - 48px)}}
+
+/* Menú móvil siempre disponible. */
+@media(max-width:1200px){
+  html{scroll-padding-top:90px}
+  .site-header{position:fixed;top:0;left:0;right:0;height:76px;padding:0 24px;background:#090c0cf5;border-bottom:1px solid #b1946345;box-shadow:0 4px 20px #0005;z-index:40}
+  .site-header .brand-seal{width:42px;height:42px}
+  .site-header .brand-seal img{width:42px;height:42px}
+  .site-header .brand-name b{font-size:24px}
+  .site-header .menu-toggle{width:44px;height:44px}
+  .site-header .mobile-navigation{top:76px;max-height:calc(100dvh - 76px);padding-bottom:max(20px,env(safe-area-inset-bottom))}
+}

@@ -66,3 +66,16 @@
 .poster-save-dialog>a{display:inline-block;color:#e5c78f;font-size:16px;line-height:1.5;padding:14px 0;text-decoration:underline}
 @media(max-width:700px){.poster-save-dialog{padding:16px}.poster-save-header h3{font-size:28px}}
 
+
+/* Dos carteles en un solo espacio. */
+.poster-gallery{min-width:0;width:100%;max-width:400px;justify-self:center}
+.poster-selector{display:flex;gap:6px;padding:5px;margin:0 auto 22px;background:#12160f;border:1px solid #b1946345;border-radius:28px;width:100%}
+.poster-selector button{flex:1;min-width:0;min-height:44px;padding:10px 12px;border:1px solid transparent;border-radius:24px;background:transparent;color:#c9bda4;font-family:"IM Fell English",Georgia,serif;font-size:18px;line-height:1.2;cursor:pointer}
+.poster-selector button[aria-pressed="true"]{background:#342a1d;color:#f0dbb6;border-color:#b1946360}
+.poster-selector button:disabled{cursor:wait}
+.poster-gallery .poster-preview{width:100%;aspect-ratio:2/3;transform:none}
+.poster-gallery .poster-preview img{width:100%;height:100%;object-fit:contain}
+.poster-times{margin:0 0 24px;padding:0;display:grid;gap:10px;font-family:"IM Fell English",Georgia,serif;font-size:20px;color:#d8c8aa}
+.poster-times>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #b1946325;padding-bottom:10px}
+.poster-times dt{line-height:1.4}.poster-times dd{margin:0;white-space:nowrap;color:#e3bd83}
+@media(max-width:700px){.poster-gallery{max-width:320px}.poster-selector{margin-bottom:18px}.poster-selector button{font-size:17px}.poster-times{font-size:19px}}
