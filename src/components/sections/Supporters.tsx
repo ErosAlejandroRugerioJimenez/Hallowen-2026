@@ -1,4 +1,7 @@
-import { useEffect, useRef, useState, type PointerEvent } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import AutoScroll from 'embla-carousel-auto-scroll'
+import { useReducedMotion } from 'motion/react'
 import { Pause, Play, Sparkles } from 'lucide-react'
 import { supporters, type Supporter } from '../../data/supporters'
 
@@ -17,47 +20,43 @@ function SupporterArtwork({ supporter }: { supporter: Supporter }) {
 export default function Supporters() {
   const [paused, setPaused] = useState(false)
   const [interacting, setInteracting] = useState(false)
-  const track = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  const [hidden, setHidden] = useState(document.hidden)
+  const reducedMotion = useReducedMotion()
+  const section = useRef<HTMLElement>(null)
   const resumeTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
-  const gesture = useRef<{ id: number; x: number; y: number; time: number; horizontal: boolean } | null>(null)
-  useEffect(() => () => clearTimeout(resumeTimer.current), [])
+  const autoScroll = useRef(AutoScroll({ speed: 0.8, playOnInit: false, stopOnInteraction: true, stopOnMouseEnter: false, stopOnFocusIn: false }))
+  const [viewport, api] = useEmblaCarousel({ loop: true, dragFree: true, align: 'start', breakpoints: { '(prefers-reduced-motion: reduce)': { active: false } } }, [autoScroll.current])
 
-  function startDrag(event: PointerEvent<HTMLDivElement>) {
-    if (!event.isPrimary || event.button !== 0) return
-    const animation = track.current?.getAnimations()[0]
-    if (!animation) return
-    clearTimeout(resumeTimer.current)
-    gesture.current = { id: event.pointerId, x: event.clientX, y: event.clientY, time: Number(animation.currentTime ?? 0), horizontal: false }
-    setInteracting(true)
-  }
-  function drag(event: PointerEvent<HTMLDivElement>) {
-    const start = gesture.current
-    if (!start || start.id !== event.pointerId) return
-    const dx = event.clientX - start.x
-    const dy = event.clientY - start.y
-    if (!start.horizontal) {
-      if (Math.abs(dy) > 8 && Math.abs(dy) > Math.abs(dx)) { endDrag(); return }
-      if (Math.abs(dx) < 8) return
-      start.horizontal = true
-      event.currentTarget.setPointerCapture(event.pointerId)
+  useEffect(() => {
+    const element = section.current
+    if (!element) return
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.1 })
+    observer.observe(element)
+    const visibility = () => setHidden(document.hidden)
+    document.addEventListener('visibilitychange', visibility)
+    return () => { observer.disconnect(); document.removeEventListener('visibilitychange', visibility) }
+  }, [])
+  useEffect(() => {
+    if (!api) return
+    const down = () => { clearTimeout(resumeTimer.current); setInteracting(true) }
+    const up = () => { clearTimeout(resumeTimer.current); resumeTimer.current = setTimeout(() => setInteracting(false), 2000) }
+    api.on('pointerDown', down).on('pointerUp', up)
+    return () => { clearTimeout(resumeTimer.current); api.off('pointerDown', down).off('pointerUp', up) }
+  }, [api])
+  useEffect(() => {
+    const scroll = api?.plugins().autoScroll
+    if (!scroll) return
+    const syncPlayback = () => {
+      if (!paused && !interacting && visible && !hidden && !reducedMotion) scroll.play(0)
+      else scroll.stop()
     }
-    const animation = track.current?.getAnimations()[0]
-    const width = track.current?.firstElementChild?.getBoundingClientRect().width ?? 0
-    const duration = Number(animation?.effect?.getTiming().duration)
-    if (!animation || !width || !Number.isFinite(duration)) return
-    event.preventDefault()
-    const time = start.time - dx / width * duration
-    animation.currentTime = ((time % duration) + duration) % duration
-  }
-  function endDrag() {
-    if (!gesture.current) return
-    gesture.current = null
-    clearTimeout(resumeTimer.current)
-    resumeTimer.current = setTimeout(() => setInteracting(false), 1000)
-  }
+    syncPlayback()
+    api.on('reInit', syncPlayback)
+    return () => { api.off('reInit', syncPlayback); scroll.stop() }
+  }, [api, paused, interacting, visible, hidden, reducedMotion])
   function togglePlayback() {
     clearTimeout(resumeTimer.current)
-    gesture.current = null
     setInteracting(false)
     setPaused(value => !value)
   }
@@ -65,20 +64,18 @@ export default function Supporters() {
   if (!supporters.length) return null
   const ribbon = Array.from({ length: Math.max(1, Math.ceil(6 / supporters.length)) }, () => supporters).flat()
 
-  return <section id="apoyos" className="section supporters-section reveal" aria-labelledby="supporters-title">
+  return <section ref={section} id="apoyos" className="section supporters-section reveal" aria-labelledby="supporters-title">
     <div className="supporters-heading">
       <p className="eyebrow">EL APOYO QUE DA VIDA A NUESTRA CALLE</p>
       <h2 id="supporters-title">Juntos hacemos<br/><em>tradición.</em></h2>
       <p>Gracias a quienes se suman para hacer posible esta noche.</p>
       <span className="supporters-ornament" aria-hidden="true"><i/><Sparkles size={19}/><i/></span>
     </div>
-    <div id="supporters-ribbon" className="supporters-ribbon" role="region" aria-label="Negocios que nos apoyan. Desliza para recorrerlos." onPointerDown={startDrag} onPointerMove={drag} onPointerUp={endDrag} onPointerCancel={endDrag} onLostPointerCapture={endDrag}>
-<div ref={track} className="supporters-track" data-paused={paused || interacting} style={{ animationDuration: '40s' }}>
-          {[0, 1].map(copy => <div className="supporters-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>
-          {ribbon.map((supporter, index) => <div className="supporter-card" data-repeat={index >= supporters.length} key={supporter.name + index} aria-hidden={index >= supporters.length ? true : undefined}>
-            <div className="supporter-artwork"><SupporterArtwork supporter={supporter}/></div>
-            <span className="supporter-caption"><span>{supporter.name}</span><small>CON NUESTRA COMUNIDAD</small></span>
-          </div>)}
+    <div ref={viewport} id="supporters-ribbon" className="supporters-ribbon" role="region" aria-label="Negocios que nos apoyan. Desliza para recorrerlos.">
+      <div className="supporters-track">
+        {[...ribbon, ...ribbon].map((supporter, index) => <div className="supporter-card" data-repeat={index >= supporters.length} key={supporter.name + index} aria-hidden={index >= supporters.length ? true : undefined}>
+          <div className="supporter-artwork"><SupporterArtwork supporter={supporter}/></div>
+          <span className="supporter-caption"><span>{supporter.name}</span><small>CON NUESTRA COMUNIDAD</small></span>
         </div>)}
       </div>
     </div>

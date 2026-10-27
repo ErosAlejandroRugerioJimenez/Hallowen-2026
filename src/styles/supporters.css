@@ -6,7 +6,7 @@
 .supporters-ornament i{width:65px;height:1px;background:linear-gradient(90deg,transparent,#ba925780)}
 .supporters-ornament i:last-child{transform:rotate(180deg)}
 .supporters-ribbon{overflow:hidden;padding:24px 0 20px;touch-action:pan-y pinch-zoom;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.supporters-track{display:flex;width:max-content;animation:supporters-travel 80s linear infinite}
+.supporters-track{display:flex;width:100%;min-width:100%}
 .supporters-group{display:flex;align-items:stretch;flex-shrink:0}
 .supporter-card{display:flex;flex-direction:column;flex:0 0 270px;width:270px;min-width:0;margin:0 22px 0 0;padding:10px;border:1px solid #ae8c5760;border-radius:14px;background:linear-gradient(150deg,#2d291b,#11150f 65%);box-shadow:0 8px 20px #0003,inset 0 1px #e8cf9630;color:#e0cfad;text-align:center;transition:border-color .2s,box-shadow .2s}
 .supporter-card:hover{border-color:#d0ae79;box-shadow:0 8px 24px #ba85451a,inset 0 1px #e8cf9650}
@@ -34,10 +34,10 @@
 [data-page-hidden="true"] .supporters-track{animation-play-state:paused}
 @keyframes supporters-travel{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){
-  .supporters-track{animation:none;width:auto}
+  .supporters-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center;gap:16px}
   .supporters-ribbon{mask-image:none;-webkit-mask-image:none}
   .supporters-group{width:100%;flex-wrap:wrap;justify-content:center;gap:16px}
-  .supporters-group+.supporters-group,.supporter-card[data-repeat="true"]{display:none}
+  .supporter-card[data-repeat="true"]{display:none}
   .supporter-card{margin:0;flex-basis:calc(50% - 8px);transition:none}
 }
 @media(prefers-reduced-motion:reduce) and (max-width:540px){.supporter-card{flex-basis:100%;max-width:280px;margin:auto}}
@@ -51,3 +51,5 @@
 @media(prefers-reduced-motion:reduce){.supporters-controls{display:none}}
 
 .supporters-ribbon{cursor:grab;user-select:none;-webkit-user-select:none}.supporters-ribbon:active{cursor:grabbing}
+
+.supporters-ribbon,.supporters-track{touch-action:pan-y pinch-zoom}.supporter-card{flex-shrink:0}.supporter-logo img{-webkit-user-drag:none}
