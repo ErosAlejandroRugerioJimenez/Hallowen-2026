@@ -79,3 +79,10 @@
 .poster-times>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #b1946325;padding-bottom:10px}
 .poster-times dt{line-height:1.4}.poster-times dd{margin:0;white-space:nowrap;color:#e3bd83}
 @media(max-width:700px){.poster-gallery{max-width:320px}.poster-selector{margin-bottom:18px}.poster-selector button{font-size:17px}.poster-times{font-size:19px}}
+
+/* Fundido entre carteles, conservando su espacio en la sección. */
+.poster-gallery .poster-preview{display:grid;overflow:hidden}
+.poster-gallery .poster-transition-image{grid-area:1 / 1;min-width:0;min-height:0;opacity:0;transition:opacity .4s ease;pointer-events:none}
+.poster-gallery .poster-transition-image[data-active="true"]{opacity:1}
+.poster-selector button{transition:background .2s ease,color .2s ease,border-color .2s ease}
+@media(prefers-reduced-motion:reduce){.poster-gallery .poster-transition-image,.poster-selector button{transition:none}}

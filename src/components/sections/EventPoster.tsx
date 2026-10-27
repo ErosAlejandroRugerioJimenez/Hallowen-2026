@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Download, Share2, X } from 'lucide-react'
 import { createPortal } from 'react-dom'
 import { trackEvent } from '../../utils/analytics'
@@ -25,6 +25,9 @@ const posters = [
 
 export default function EventPoster() {
   const [selected, setSelected] = useState(0)
+  const [displayed, setDisplayed] = useState(0)
+  const [loaded, setLoaded] = useState<boolean[]>([false, false])
+  useEffect(() => { if (loaded[selected]) setDisplayed(selected) }, [selected, loaded])
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState('')
   const posterDialog = useRef<HTMLDialogElement>(null)
@@ -60,8 +63,8 @@ export default function EventPoster() {
       <div className="poster-selector" role="group" aria-label="Elegir cartel">
         {posters.map((item, index) => <button key={item.image} type="button" aria-pressed={selected === index} aria-controls="selected-poster" disabled={busy} onClick={() => { setSelected(index); setMessage('') }}>{item.label}</button>)}
       </div>
-      <button id="selected-poster" type="button" className="poster-preview" onClick={openPoster} aria-label={'Ampliar cartel: ' + poster.label}>
-        <img key={poster.preview} src={poster.preview} alt={poster.alt} width={poster.width} height={poster.height} loading="lazy" decoding="async"/>
+      <button id="selected-poster" type="button" className="poster-preview" onClick={openPoster} aria-label={'Ampliar cartel: ' + posters[displayed].label} aria-busy={!loaded[selected]}>
+        {posters.map((item, index) => <img key={item.preview} className="poster-transition-image" data-active={displayed === index} aria-hidden={displayed !== index} src={item.preview} alt={item.alt} width={item.width} height={item.height} loading="lazy" decoding="async" onLoad={() => setLoaded(previous => { if (previous[index]) return previous; const next = [...previous]; next[index] = true; return next })}/>)}
       </button>
     </div>
     <div className="poster-copy">
