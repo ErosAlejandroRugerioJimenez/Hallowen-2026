@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { useReducedMotion } from 'motion/react'
-import { Pause, Play, Sparkles } from 'lucide-react'
+import { Pause, Play } from 'lucide-react'
+import { SparkleIcon } from '@phosphor-icons/react'
 import { supporters, type Supporter } from '../../data/supporters'
 
 function SupporterArtwork({ supporter }: { supporter: Supporter }) {
@@ -69,7 +70,7 @@ export default function Supporters() {
       <p className="eyebrow">EL APOYO QUE DA VIDA A NUESTRA CALLE</p>
       <h2 id="supporters-title">Juntos hacemos<br/><em>tradición.</em></h2>
       <p>Gracias a quienes se suman para hacer posible esta noche.</p>
-      <span className="supporters-ornament" aria-hidden="true"><i/><Sparkles size={19}/><i/></span>
+      <span className="supporters-ornament" aria-hidden="true"><i/><SparkleIcon size={24} weight="duotone"/><i/></span>
     </div>
     <div ref={viewport} id="supporters-ribbon" className="supporters-ribbon" role="region" aria-label="Negocios que nos apoyan. Desliza para recorrerlos.">
       <div className="supporters-track">

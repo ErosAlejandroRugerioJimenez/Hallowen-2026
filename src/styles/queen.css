@@ -1,0 +1,9 @@
+.queen-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);align-items:center;gap:clamp(28px,5vw,72px);padding-block:50px;border-top:1px solid #b194632b}
+.queen-copy{min-width:0;max-width:540px}
+.queen-copy h2{font-size:clamp(42px,5vw,68px);line-height:1.08;text-wrap:balance}
+.queen-copy h2 em{display:block}
+.queen-copy>p:not(.eyebrow){font-family:"IM Fell English",Georgia,serif;font-size:clamp(19px,2vw,22px);line-height:1.65;color:#d3c7ad;margin:22px 0}
+.queen-signature{display:block;font-family:"IM Fell English",Georgia,serif;font-size:18px;font-style:italic;color:#bfa57e;line-height:1.5}
+.queen-artwork{min-width:0;width:100%;margin:0;border:1px solid #b1946355;background:#111010;padding:8px;box-shadow:0 16px 40px #0004}
+.queen-artwork img{display:block;width:100%;height:auto;object-fit:contain}
+@media(max-width:700px){.queen-section{grid-template-columns:minmax(0,1fr);gap:26px;padding-block:34px}.queen-copy{max-width:none}.queen-artwork{max-width:440px;justify-self:center}.queen-copy>p:not(.eyebrow){margin:18px 0}}

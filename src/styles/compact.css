@@ -88,3 +88,12 @@
   .site-header .menu-toggle{width:44px;height:44px}
   .site-header .mobile-navigation{top:76px;max-height:calc(100dvh - 76px);padding-bottom:max(20px,env(safe-area-inset-bottom))}
 }
+
+/* Keep desktop navigation visible and section headings below the header. */
+@media(min-width:1201px){
+  html{scroll-padding-top:112px}
+  .site-header{position:fixed;top:0;left:0;right:0;height:96px;z-index:40;background:#090c0cf5;border-bottom:1px solid #b1946345;box-shadow:0 4px 20px #0005}
+}
+
+/* Legible information icons at every viewport size. */
+.hero-date-banner svg,.hero-location-link svg,.location-details svg{width:22px;height:22px;flex-shrink:0;color:#d6b782}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { Camera, Expand, Pause, Play, X } from 'lucide-react'
+import { Expand, Pause, Play, X } from 'lucide-react'
+import { CameraIcon } from '@phosphor-icons/react'
 import { useReducedMotion } from 'motion/react'
 import { memories } from '../../data/memories'
 
@@ -96,7 +97,7 @@ export default function Memories() {
       <p>Los disfraces cambian.<br/>La tradición sigue viva.<span>Fotografías de nuestra comunidad</span></p>
     </div>
     {memories.length === 0 ? <div className="memories-empty">
-      <Camera size={34} strokeWidth={1} aria-hidden="true"/>
+      <CameraIcon size={40} weight="duotone" aria-hidden="true"/>
       <p>Pronto compartiremos los momentos que han hecho historia en nuestra calle.</p>
     </div> : <div className="memories-carousel" role="region" aria-roledescription="carrusel" aria-label="Recuerdos de otras ediciones">
       <div className="album-label" aria-hidden="true"><span>CALLE ALLENDE</span><span>ARCHIVO DE RECUERDOS / {String(memories.length).padStart(2, '0')}</span></div>
@@ -131,7 +132,7 @@ export default function Memories() {
       <div className="memories-controls">
         <span className="memory-count" aria-live={paused || reducedMotion ? 'polite' : 'off'}><b>{String(active + 1).padStart(2, '0')}</b><span>/ {String(memories.length).padStart(2, '0')}</span></span>
         {multiple && <div className="memory-buttons">
-          {!reducedMotion && <button type="button" aria-label={paused ? 'Reproducir carrusel' : 'Pausar carrusel'} title={paused ? 'Reanudar cambio automático de fotos' : 'Pausar cambio automático de fotos'} onClick={() => { resumeAfter.current = 0; setPaused(value => !value) }}>{paused ? <Play size={15}/> : <Pause size={15}/>}</button>}
+          {!reducedMotion && <button type="button" aria-label={paused ? 'Reproducir carrusel' : 'Pausar carrusel'} title={paused ? 'Reanudar cambio automático de fotos' : 'Pausar cambio automático de fotos'} onClick={() => { resumeAfter.current = 0; setPaused(value => !value) }}>{paused ? <Play size={18} aria-hidden="true"/> : <Pause size={18} aria-hidden="true"/>}</button>}
         </div>}
       </div>
       <p className="memory-hint">Desliza y vuelve a vivir la tradición.</p>

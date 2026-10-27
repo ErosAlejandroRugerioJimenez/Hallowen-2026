@@ -1,10 +1,11 @@
 import PassingShadow from '../decorations/PassingShadow'
-import { UsersRound } from 'lucide-react'
+import { UsersThreeIcon } from '@phosphor-icons/react'
+import '../../styles/section-emblems.css'
 import { committee } from '../../data/event'
 
 export default function Committee() {
   return <section id="comite" className="section committee-section reveal" aria-labelledby="committee-title">
-    <div className="committee-icon"><UsersRound size={35} strokeWidth={1.1}/></div>
+    <div className="committee-icon section-emblem committee-emblem" aria-hidden="true"><UsersThreeIcon size={44} weight="duotone" /></div>
     <p className="eyebrow">DE VECINOS, PARA TODOS</p>
     <h2 id="committee-title">Comité <em>2026</em></h2>
     <p>Vecinos que organizan esta edición para que nuestra tradición siga viva.</p>

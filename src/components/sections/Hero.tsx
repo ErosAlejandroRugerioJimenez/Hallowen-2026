@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { m, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { ChevronsDown, CalendarDays, Clock3, MapPin } from 'lucide-react'
+import { ChevronsDown } from 'lucide-react'
+import { CalendarDotsIcon, ClockIcon, MapPinIcon } from '@phosphor-icons/react'
 import { event } from '../../data/event'
 import Countdown from '../experience/Countdown'
 
@@ -25,14 +26,14 @@ export default function Hero() {
     <div className="hero-copy">
       <p className="eyebrow"><span className="little-line" /> DÍA DE MUERTOS · {event.year}</p>
       <div className="hero-date-banner" aria-label={'Fecha del evento: ' + event.dateLabel + ', ' + event.timeLabel}>
-        <span><CalendarDays size={20} strokeWidth={1.2}/><strong>{event.shortDate}</strong></span>
-        <span><Clock3 size={20} strokeWidth={1.2}/><strong>Cita: {event.timeLabel}</strong></span>
+        <span><CalendarDotsIcon size={22} weight="duotone" aria-hidden="true"/><strong>{event.shortDate}</strong></span>
+        <span><ClockIcon size={22} weight="duotone" aria-hidden="true"/><strong>Cita: {event.timeLabel}</strong></span>
       </div>
       <h1 id="hero-title">La calle de<br /><em>las brujas.</em></h1>
       <p className="anniversary-message"><strong>24 años</strong><span>dando vida a nuestra tradición.</span></p>
       <p className="hero-description">Entre velas, catrinas y susurros, nuestra calle vuelve a cobrar vida. Ven con los tuyos a celebrar a quienes siempre nos acompañan.</p>
       <Countdown />
-      <a className="hero-location-link" href="#ubicacion"><MapPin size={18} strokeWidth={1.2}/>Ver ubicación</a>
+      <a className="hero-location-link" href="#ubicacion"><MapPinIcon size={22} weight="duotone" aria-hidden="true"/>Ver ubicación</a>
     </div>
     <span className="horror-whisper">NO TODAS LAS SOMBRAS ESTÁN VACÍAS</span>
     <a className="scroll-cue" href="#apoyos"><ChevronsDown size={22} strokeWidth={1.5}/> DESLIZA Y DESCUBRE MÁS</a>

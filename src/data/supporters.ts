@@ -54,4 +54,7 @@ export const supporters: Supporter[] = [
     logoBackground: '#a72d36',
     logo: '/images/apoyos/banquetes-the-godfather.webp',
   },
+  { name: 'Pollería Félix' },
+  { name: 'Tienda Alejandra Gervasio' },
+  { name: 'Natural Pura', logo: '/images/apoyos/natural-pura.webp', logoBackground: '#ffffff' },
 ]

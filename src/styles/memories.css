@@ -58,3 +58,8 @@
 .memory-lightbox:focus{outline:none}
 .memory-lightbox-close{border:0}
 .memory-lightbox-close:focus:not(:focus-visible){outline:none}
+
+/* Evitar el aro de Safari al tocar y al devolver el foco desde el visor. */
+.memory-expand{border:0;-webkit-tap-highlight-color:transparent}
+html[data-input-method="pointer"] :is(.memory-expand,.memory-lightbox-close,.poster-preview,.poster-save-header button):focus{outline:none}
+.poster-save-dialog:focus{outline:none}

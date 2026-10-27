@@ -11,14 +11,17 @@ import Committee from './components/sections/Committee'
 import Supporters from './components/sections/Supporters'
 import Closing from './components/sections/Closing'
 import EventPoster from './components/sections/EventPoster'
+import Queen from './components/sections/Queen'
 import AmbientSound from './components/experience/AmbientSound'
 import FallingPetals from './components/decorations/FallingPetals'
 import { useReveal } from './hooks/useReveal'
+import { useInputMethod } from './hooks/useInputMethod'
 import { useSectionNavigation } from './hooks/useSectionNavigation'
 
 export default function App() {
   const page = useReveal()
   useSectionNavigation()
+  useInputMethod()
   return (
     <LazyMotion features={domAnimation}>
       <div ref={page}>
@@ -28,6 +31,7 @@ export default function App() {
           <Hero/>
           <Supporters/>
           <EventPoster/>
+          <Queen/>
           <TraditionStrip/>
           <Tradition/>
           <Memories/>
