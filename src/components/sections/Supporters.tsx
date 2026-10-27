@@ -53,7 +53,7 @@ export default function Supporters() {
     if (!gesture.current) return
     gesture.current = null
     clearTimeout(resumeTimer.current)
-    resumeTimer.current = setTimeout(() => setInteracting(false), 30)
+    resumeTimer.current = setTimeout(() => setInteracting(false), 1000)
   }
   function togglePlayback() {
     clearTimeout(resumeTimer.current)

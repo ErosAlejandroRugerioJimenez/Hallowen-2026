@@ -22,7 +22,7 @@ export default function Memories() {
     if (!api) return
     const select = () => setActive(api.selectedScrollSnap())
     const startDrag = () => setDragging(true)
-    const endDrag = () => { resumeAfter.current = Date.now() + 30; setDragging(false) }
+    const endDrag = () => { resumeAfter.current = Date.now() + 2000; setDragging(false) }
     select()
     api.on('select', select).on('reInit', select).on('pointerDown', startDrag).on('pointerUp', endDrag)
     return () => { api.off('select', select).off('reInit', select).off('pointerDown', startDrag).off('pointerUp', endDrag) }
@@ -76,11 +76,14 @@ export default function Memories() {
     }
   }, [api, multiple, paused, dragging, reducedMotion, expanded])
   useEffect(() => {
-    if (expanded !== null) dialog.current?.showModal()
+    if (expanded !== null) {
+      dialog.current?.showModal()
+      dialog.current?.focus({ preventScroll: true })
+    }
   }, [expanded])
 
   function navigate(direction: number) {
-    resumeAfter.current = Date.now() + 30
+    resumeAfter.current = Date.now() + 2000
     if (direction > 0) api?.scrollNext(Boolean(reducedMotion))
     else api?.scrollPrev(Boolean(reducedMotion))
   }
@@ -133,8 +136,8 @@ export default function Memories() {
       </div>
       <p className="memory-hint">Desliza y vuelve a vivir la tradición.</p>
     </div>}
-    <dialog ref={dialog} className="memory-lightbox" onClose={() => setExpanded(null)} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close() }} aria-label="Fotografía ampliada">
-      <button type="button" className="memory-lightbox-close" autoFocus aria-label="Cerrar fotografía" onClick={() => dialog.current?.close()}><X size={24}/></button>
+    <dialog ref={dialog} tabIndex={-1} className="memory-lightbox" onClose={() => setExpanded(null)} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close() }} aria-label="Fotografía ampliada">
+      <button type="button" className="memory-lightbox-close" aria-label="Cerrar fotografía" onClick={() => dialog.current?.close()}><X size={24}/></button>
       {expanded !== null && <img src={memories[expanded].src} alt={memories[expanded].alt}/>}
     </dialog>
   </section>

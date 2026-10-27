@@ -53,3 +53,8 @@
   .memory-dots button{width:20px;min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){.memory-print{transition:none}}
+
+/* El visor recibe el foco al abrirse, sin resaltar automáticamente la X. */
+.memory-lightbox:focus{outline:none}
+.memory-lightbox-close{border:0}
+.memory-lightbox-close:focus:not(:focus-visible){outline:none}
