@@ -1,4 +1,5 @@
 import { ArrowUpRight, CalendarDays, Clock3 } from 'lucide-react'
+import { trackEvent } from '../../utils/analytics'
 import { event } from '../../data/event'
 
 export default function Location() {
@@ -11,11 +12,11 @@ export default function Location() {
         <span><CalendarDays size={17} strokeWidth={1}/>{event.dateLabel}</span>
         <span><Clock3 size={17} strokeWidth={1}/>Cita: {event.timeLabel}</span>
       </div>
-      <a className="primary-link" href={event.location.directionsUrl} target="_blank" rel="noopener noreferrer">Cómo llegar <ArrowUpRight size={17}/></a>
+      <a className="primary-link" href={event.location.directionsUrl} onClick={() => trackEvent('como-llegar')} target="_blank" rel="noopener noreferrer">Cómo llegar <ArrowUpRight size={17}/></a>
     </div>
     <div className="map-frame">
       <iframe src={event.location.embedUrl} title="Mapa en 2D del punto de encuentro" width="600" height="400" allowFullScreen loading="lazy" referrerPolicy="strict-origin-when-cross-origin"/>
-      <a href={event.location.mapUrl} target="_blank" rel="noopener noreferrer">Abrir en Google Maps <ArrowUpRight size={13}/></a>
+      <a href={event.location.mapUrl} onClick={() => trackEvent('abrir-mapa')} target="_blank" rel="noopener noreferrer">Abrir en Google Maps <ArrowUpRight size={13}/></a>
     </div>
   </section>
 }

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { Download, Share2, X } from 'lucide-react'
 import { createPortal } from 'react-dom'
+import { trackEvent } from '../../utils/analytics'
 import { event } from '../../data/event'
 
 const posters = [
@@ -28,10 +29,14 @@ export default function EventPoster() {
   const [message, setMessage] = useState('')
   const posterDialog = useRef<HTMLDialogElement>(null)
   const poster = posters[selected]
-  function openPoster() { posterDialog.current?.showModal() }
+  function openPoster() {
+    posterDialog.current?.showModal()
+    posterDialog.current?.focus({ preventScroll: true })
+  }
 
   async function share() {
     if (busy) return
+    trackEvent('compartir-cartel', { cartel: poster.label })
     setBusy(true)
     setMessage('')
     try {
@@ -69,15 +74,15 @@ export default function EventPoster() {
         <div><dt>Show de Sponch Biker</dt><dd>6:30 p. m.</dd></div>
       </dl>
       <div className="poster-actions">
-        <a className="primary-link" href={poster.image} download={poster.filename}><Download size={18}/> Descargar cartel</a>
+        <a className="primary-link" href={poster.image} download={poster.filename} onClick={() => trackEvent('descargar-cartel', { cartel: poster.label })}><Download size={18}/> Descargar cartel</a>
         <button type="button" className="poster-share" disabled={busy} onClick={() => void share()}><Share2 size={18}/>{busy ? 'Preparando…' : 'Compartir cartel'}</button>
       </div>
       <p className="poster-message" role="status">{message}</p>
     </div>
-    {createPortal(<dialog ref={posterDialog} className="poster-save-dialog" aria-labelledby="poster-save-title" aria-describedby="poster-save-help" onClick={click => { if (click.target === click.currentTarget) posterDialog.current?.close() }}>
+    {createPortal(<dialog ref={posterDialog} tabIndex={-1} className="poster-save-dialog" aria-labelledby="poster-save-title" aria-describedby="poster-save-help" onClick={click => { if (click.target === click.currentTarget) posterDialog.current?.close() }}>
       <div className="poster-save-header">
         <h3 id="poster-save-title">{poster.label}</h3>
-        <button type="button" autoFocus aria-label="Cerrar cartel" onClick={() => posterDialog.current?.close()}><X size={24}/></button>
+        <button type="button" aria-label="Cerrar cartel" onClick={() => posterDialog.current?.close()}><X size={24}/></button>
       </div>
       <p id="poster-save-help">Mantén presionada la imagen y elige «Guardar en Fotos» o «Añadir a Fotos».</p>
       <img src={poster.image} alt={poster.alt} width={poster.width} height={poster.height}/>
