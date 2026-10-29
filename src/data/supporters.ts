@@ -57,4 +57,5 @@ export const supporters: Supporter[] = [
   { name: 'Pollería Félix' },
   { name: 'Tienda Alejandra Gervasio' },
   { name: 'Natural Pura', logo: '/images/apoyos/natural-pura.webp', logoBackground: '#ffffff' },
+  { name: 'Tecnopro Ferretería Cuatianquiz', logo: '/images/apoyos/tecnopro-ferreteria-cuatianquiz.webp', logoBackground: '#ffffff' },
 ]
