@@ -86,3 +86,7 @@
 .poster-gallery .poster-transition-image[data-active="true"]{opacity:1}
 .poster-selector button{transition:background .2s ease,color .2s ease,border-color .2s ease}
 @media(prefers-reduced-motion:reduce){.poster-gallery .poster-transition-image,.poster-selector button{transition:none}}
+
+/* Three poster choices fit narrow screens without crowding. */
+.poster-selector{flex-wrap:wrap;border-radius:18px}
+.poster-selector button{flex:1 1 80px;padding:10px 8px;font-size:16px}

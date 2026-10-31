@@ -21,12 +21,20 @@ const posters = [
     alt: 'Cartel del payaso Sponch Biker en San Francisco Tetlanohcan. Desfile a las 6:00 p. m. y show a las 6:30 p. m.',
     width: 853, height: 1280,
   },
+  {
+    label: 'Scorpions',
+    preview: '/images/cartel-scorpions-2026.webp',
+    image: '/images/cartel-scorpions-2026.jpg',
+    filename: 'calle-de-las-brujas-scorpions-2026.jpg',
+    alt: 'Luz y Sonido Scorpions en la Calle de las Brujas, lunes 2 de noviembre. Agradecimiento a Ferretería Cuatianquiz.',
+    width: 1205, height: 1306,
+  },
 ] as const
 
 export default function EventPoster() {
   const [selected, setSelected] = useState(0)
   const [displayed, setDisplayed] = useState(0)
-  const [loaded, setLoaded] = useState<boolean[]>([false, false])
+  const [loaded, setLoaded] = useState<boolean[]>(() => posters.map(() => false))
   useEffect(() => { if (loaded[selected]) setDisplayed(selected) }, [selected, loaded])
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState('')
