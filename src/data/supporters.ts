@@ -60,4 +60,6 @@ export const supporters: Supporter[] = [
   { name: 'Tecnopro Ferretería Cuatianquiz', logo: '/images/apoyos/tecnopro-ferreteria-cuatianquiz.webp', logoBackground: '#ffffff' },
   { name: 'Alquiladora Galis', logo: '/images/apoyos/alquiladora-galis.webp', logoBackground: '#ffffff' },
   { name: 'Suspenciones Grupo AJAO' },
+  { name: 'Arq. Rene Cuapio Morales', logo: '/images/apoyos/arq-rene-cuapio-morales.webp', logoBackground: '#080808' },
+  { name: 'Lic. Eliseo Zelocuatecatl' },
 ]
