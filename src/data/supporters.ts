@@ -61,4 +61,9 @@ export const supporters: Supporter[] = [
   { name: 'Suspenciones Grupo AJAO' },
   { name: 'Arq. Rene Cuapio Morales', logo: '/images/apoyos/arq-rene-cuapio-morales.webp', logoBackground: '#080808' },
   { name: 'Lic. Eliseo Zelocuatecatl' },
+  { name: 'Panadería y Pastelería Del Pilar', logo: '/images/apoyos/del-pilar.webp' },
+  { name: 'Diego Cuatianquiz Rugerio' },
+  { name: 'Daniel Cuatianquiz Rugerio' },
+  { name: 'Miguel Rugerio Sosa' },
+  { name: 'Alberto Rugerio Sosa' },
 ]
