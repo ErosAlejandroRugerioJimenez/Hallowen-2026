@@ -14,8 +14,7 @@ export const supporters: Supporter[] = [
     name: 'Abarrotes Pluma',
   },
   {
-    name: 'Panadería y Pastelería Del Pilar',
-    logo: '/images/apoyos/del-pilar.webp',
+    name: 'Abarrotes Toño',
   },
   {
     name: 'Ferretería Flores',
